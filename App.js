@@ -12,24 +12,3 @@ export default function App() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
-
-  fixToText: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-
-  button: {
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-    marginLeft: 250
-  }
-
-});
