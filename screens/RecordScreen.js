@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 const InputBox = props => {
@@ -7,7 +7,7 @@ const InputBox = props => {
 
     return (
         <View>
-            <TextInput style={{ height: 80, paddingTop: 0, margin: 15 }}
+            <TextInput style={{ height: 80, paddingTop: 0, margin: 10 }}
                 mode="outlined"
                 multiline
                 label={props.label}
@@ -18,27 +18,29 @@ const InputBox = props => {
     );
 };
 
-const HomeScreen = ({ navigation }) => {
+const SaveButton = () => {
+    return (
+            <View style={styles.fixToText}>
+            <Button title="Save" style={styles.button} color="blue" />
+            </View>
+    );
+}
+const RecordScreen = ({ navigation }) => {
     return (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
             <View style={styles.container}>
-                <Text>Log ABC</Text>
+                <Text>Record new ABC chart</Text>
                 <InputBox label="Setting"></InputBox>
                 <InputBox label="Antecedent"></InputBox>
                 <InputBox label="Behavior"></InputBox>
                 <InputBox label="Consequence"></InputBox>
-            </View>
-
-            <View style={styles.fixToText}>
-                <TouchableOpacity style={styles.button}>
-                    <Text>Save</Text>
-                </TouchableOpacity>
+                <SaveButton></SaveButton>
             </View>
         </ScrollView>
     );
 }
 
-export default HomeScreen;
+export default RecordScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -51,12 +53,14 @@ const styles = StyleSheet.create({
     fixToText: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignSelf: 'center',
+        margin: 20
     },
 
     button: {
-        backgroundColor: '#DDDDDD',
         padding: 10,
-        marginLeft: 250
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     }
 
 });
