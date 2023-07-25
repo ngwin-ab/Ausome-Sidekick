@@ -1,15 +1,15 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const ResourcesScreen = ({ navigation }) => {
+const Child = ({ navigation }) => {
     return (
         <View>
-            <Text>Resources Screen</Text>
+            <Text>Child Screen</Text>
         </View>
     );
 }
 
-export default ResourcesScreen;
+export default Child;
 
 const style = StyleSheet.create({
     container: {

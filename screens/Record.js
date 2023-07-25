@@ -25,7 +25,7 @@ const SaveButton = () => {
             </View>
     );
 }
-const RecordScreen = ({ navigation }) => {
+const Record = ({ navigation }) => {
     return (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
             <View style={styles.container}>
@@ -40,7 +40,7 @@ const RecordScreen = ({ navigation }) => {
     );
 }
 
-export default RecordScreen;
+export default Record;
 
 const styles = StyleSheet.create({
     container: {
