@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import SaveButton from '../components/SaveButton';
 
 const InputBox = props => {
     const [text, setText] = useState("");
@@ -18,13 +19,6 @@ const InputBox = props => {
     );
 };
 
-const SaveButton = () => {
-    return (
-            <View style={styles.fixToText}>
-            <Button title="Save" style={styles.button} color="blue" />
-            </View>
-    );
-}
 const Record = ({ navigation }) => {
     return (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
@@ -49,18 +43,4 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         justifyContent: 'center',
     },
-
-    fixToText: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignSelf: 'center',
-        margin: 20
-    },
-
-    button: {
-        padding: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    }
-
 });

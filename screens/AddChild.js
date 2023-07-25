@@ -1,15 +1,35 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import SaveButton from "../components/SaveButton";
 
-const AddChild = ( {navigation} ) => {
+const InputBox = () => {
+    const [text, onChangeText] = React.useState('');
+
     return (
-        <View style={style.container}>
-            <Text>Add Child Screen</Text>
-        </View>
+        <TextInput
+            style={style.input}
+            onChangeText={onChangeText}
+            value={text}
+        />
+    );
+};
+
+const AddChild = ({ navigation }) => {
+    return (
+            <View style={style.container}>
+                <Ionicons name="person-add-sharp" size={50} color="#061464" />
+                <Separator />
+                <Text>Enter child's information:</Text>
+                <Separator />
+                <Text>Child's name:</Text>
+                <InputBox></InputBox>
+                <SaveButton></SaveButton>
+            </View>
     );
 }
 
-export default AddChild;
+const Separator = () => <View style={style.separator} />;
 
 const style = StyleSheet.create({
     container: {
@@ -18,4 +38,19 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+    separator: {
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
 });
+
+export default AddChild;
