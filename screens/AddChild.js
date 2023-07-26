@@ -1,7 +1,6 @@
-import React from "react";
-import { View, Text, StyleSheet, TextInput } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import SaveButton from "../components/base_components/SaveButton";
+import React from 'react';
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { StackActions } from '@react-navigation/native';
 
 const InputBox = () => {
     const [text, onChangeText] = React.useState('');
@@ -19,14 +18,22 @@ const AddChild = ({ navigation }) => {
     return (
         <>
             <View style={styles.container}>
-                <Ionicons name="person-add-sharp" size={50} color="#061464" />
-                <Separator />
-                <Text>Enter child's information:</Text>
+                <Text>Add a child</Text>
                 <Separator />
                 <Text>Child's name:</Text>
                 <Separator />
                 <InputBox></InputBox>
-                <SaveButton onPress={() => navigation.navigate('AddNotification')}></SaveButton>
+                <Text>Child's likes:</Text>
+                <Separator />
+                <InputBox></InputBox>
+                <Text>Child's dislikes:</Text>
+                <Separator />
+                <InputBox></InputBox>
+                <Button
+                    title='Save'
+                    color='#061464'
+                    onPress={() => navigation.dispatch(StackActions.pop(1))}
+                />
             </View>
         </>
     );

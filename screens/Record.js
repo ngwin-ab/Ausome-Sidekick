@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import SaveButton from '../components/SaveButton';
 
 const InputBox = props => {
     const [text, setText] = useState("");
@@ -23,12 +22,16 @@ const Record = ({ navigation }) => {
     return (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
             <View style={styles.container}>
-                <Text>Record new ABC chart</Text>
+                <Text>{kid.name}</Text>
                 <InputBox label="Setting"></InputBox>
                 <InputBox label="Antecedent"></InputBox>
                 <InputBox label="Behavior"></InputBox>
                 <InputBox label="Consequence"></InputBox>
-                <SaveButton></SaveButton>
+                <Button
+                    title='Save'
+                    color='#061464'
+                />
+
             </View>
         </ScrollView>
     );
