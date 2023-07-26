@@ -3,13 +3,13 @@ import { View, Button, StyleSheet } from 'react-native';
 
 const SaveButton = () => {
     return (
-            <View style={style.fixToText}>
-            <Button title="Save" style={style.button} color="blue" />
+            <View style={styles.fixToText}>
+            <Button title="Save" style={styles.button} color="blue" />
             </View>
     );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     fixToText: {
         flexDirection: 'row',
         justifyContent: 'space-between',
