@@ -11,7 +11,7 @@ const Settings = ({ navigation }) => {
 
 export default Settings;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',

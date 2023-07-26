@@ -1,13 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import 'react-native-gesture-handler';
 
 const Home = ({ navigation }) => {
     return (
-        <View style={style.container}>
+        <View style={styles.container}>
             <TouchableOpacity 
-            style={style.box}
+            style={styles.box}
             onPress={() => navigation.navigate('AddChild')}>
                 <Ionicons name="add-circle" size={24} color="black" />
                 <Text>Add a child</Text>
@@ -18,7 +17,7 @@ const Home = ({ navigation }) => {
 
 export default Home;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',

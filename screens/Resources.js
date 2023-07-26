@@ -11,7 +11,7 @@ const Resources = ({ navigation }) => {
 
 export default Resources;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
