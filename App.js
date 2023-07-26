@@ -12,23 +12,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
-const Stack = createNativeStackNavigator();
 
 const App = () => {
-  // return (
-  //   <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
-  //     <NavigationContainer>
-  //       <Stack.Navigator screenOptions={{ headerShown: false }}>
-  //         <Stack.Screen name='Root' component={Root}></Stack.Screen>
-  //         <Stack.Group>
-  //           <Stack.Screen name='AddChild' component={AddChild}></Stack.Screen>
-  //           <Stack.Screen name='Record' component={Record}></Stack.Screen>
-  //         </Stack.Group>
-  //       </Stack.Navigator>
-  //     </NavigationContainer>
-  //     <StatusBar />
-  //   </ScrollView>
-  // );
   return (
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
       <NavigationContainer>
