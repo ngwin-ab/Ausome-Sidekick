@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Image, Alert } from 'react-native';
 import { StackActions } from '@react-navigation/native';
 
 const InputBox = () => {
@@ -14,6 +14,41 @@ const InputBox = () => {
     );
 };
 
+const AvatarBox = () => {
+    const avatars = [
+        require('../assets/Icons/Cat_1.png'),
+        require('../assets/Icons/Cat_2.png'),
+        require('../assets/Icons/Cat_3.png'),
+        require('../assets/Icons/Cat_4.png'),
+        require('../assets/Icons/Cat_5.png'),
+        require('../assets/Icons/Cat_6.png'),
+        require('../assets/Icons/Cat_7.png'),
+        require('../assets/Icons/Cat_8.png'),
+    ];
+
+    const row1 = avatars.slice(0, 4);
+    const row2 = avatars.slice(4);
+
+    const AvatarsRow = ({ avatars }) => {
+        return (
+            <View style={styles.row}>
+                {avatars.map((avatar, index) => (
+                    <TouchableOpacity onPress={() => Alert.alert('Looks good!')}>
+                        <Image key={index} source={avatar} style={styles.avatar} resizeMode="contain" />
+                    </TouchableOpacity>        
+                ))}
+            </View>
+        );
+    };
+    return (
+        <View>
+            <AvatarsRow avatars={row1} />
+            <AvatarsRow avatars={row2} />
+        </View>
+
+    );
+}
+
 const AddChild = ({ navigation }) => {
     return (
         <>
@@ -21,14 +56,12 @@ const AddChild = ({ navigation }) => {
                 <Text>Add a child</Text>
                 <Separator />
                 <Text>Child's name:</Text>
-                <Separator />
                 <InputBox></InputBox>
-                <Text>Child's likes:</Text>
                 <Separator />
-                <InputBox></InputBox>
-                <Text>Child's dislikes:</Text>
+                <Text>Choose an avatar:</Text>
                 <Separator />
-                <InputBox></InputBox>
+                <AvatarBox></AvatarBox>
+                <Separator />
                 <Button
                     title='Save'
                     color='#061464'
@@ -51,9 +84,7 @@ const styles = StyleSheet.create({
     },
 
     separator: {
-        marginVertical: 8,
-        borderBottomColor: '#737373',
-        borderBottomWidth: StyleSheet.hairlineWidth,
+        marginVertical: 10,
     },
 
     input: {
@@ -62,7 +93,19 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        margin: 10,
         backgroundColor: 'white'
+    },
+
+    avatar: {
+        width: 80,
+        height: 80,
+    },
+
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 10,
     },
 });
 
