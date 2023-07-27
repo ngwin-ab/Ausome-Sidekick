@@ -45,7 +45,7 @@ const Separator = () => <View style={styles.separator} />;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'rgb(163, 196, 204)',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        backgroundColor: 'white'
     },
 });
 
