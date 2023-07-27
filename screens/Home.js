@@ -17,7 +17,7 @@ const Home = ({ navigation }) => {
             <TouchableOpacity
                 style={styles.addbox}
                 onPress={() => navigation.navigate('AddChild')}>
-                <Ionicons name='add-circle' size={90} color='#061464' />
+                <Ionicons name='add-circle' size={90} color='rgb(167, 200, 215)' />
                 <Text style={styles.heading}>Add child</Text>
             </TouchableOpacity>
         </View>
@@ -29,13 +29,14 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(167, 200, 215)',
+        backgroundColor: 'rgb(235, 243, 250)',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
     kidbox: {
         borderColor: 'rgb(123, 165, 185)',
+        backgroundColor: 'rgb(167, 200, 215)',
         borderWidth: 2,
         flexDirection: 'row',  
         margin: 10,
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: 'rgb(86, 136, 159)'
+        color: '#061464'
     },
 
     avatar: {

@@ -14,7 +14,7 @@ export default Settings;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(163, 196, 204)',
+        backgroundColor: 'rgb(167, 200, 215)',
         alignItems: 'center',
         justifyContent: 'center',
     },
