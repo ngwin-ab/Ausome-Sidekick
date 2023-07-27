@@ -1,15 +1,24 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const Separator = () => <View style={styles.separator} />;
 
 const Home = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity 
-            style={styles.box}
-            onPress={() => navigation.navigate('AddChild')}>
-                <Ionicons name="add-circle" size={24} color="black" />
-                <Text>Add a child</Text>
+            <TouchableOpacity
+                style={styles.kidbox}
+                onPress={() => navigation.navigate('AddChild')}>
+                <Image style={styles.avatar} source={require('../assets/Icons/Cat_3.png')} />
+                <Text style={styles.heading}>Child's name</Text>
+            </TouchableOpacity>
+            <Separator />
+            <TouchableOpacity
+                style={styles.addbox}
+                onPress={() => navigation.navigate('AddChild')}>
+                <Ionicons name='add-circle' size={90} color='#061464' />
+                <Text style={styles.heading}>Add child</Text>
             </TouchableOpacity>
         </View>
     );
@@ -25,12 +34,38 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    box: {
+    kidbox: {
+        borderColor: 'rgb(123, 165, 185)',
+        borderWidth: 2,
+        flexDirection: 'row',  
+        margin: 10,
+        padding: 10,
+        alignItems: 'center',
+    }, 
+
+    addbox: {
         width: 200,
         height: 100,
-        backgroundColor: 'rgb(212, 222, 227)',
-        borderWidth: 2,
+        backgroundColor: 'transparent',
+        margin: 10,
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    },
+
+    heading: {
+        fontWeight: 'bold',
+        fontSize: 25,
+        color: 'rgb(86, 136, 159)'
+    },
+
+    avatar: {
+        width: 100,
+        height: 100,
+        marginRight: 15
+    },
+
+    separator: {
+        marginVertical: 10,
+    },
+
 });

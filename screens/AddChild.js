@@ -33,8 +33,8 @@ const AvatarBox = () => {
         return (
             <View style={styles.row}>
                 {avatars.map((avatar, index) => (
-                    <TouchableOpacity onPress={() => Alert.alert('Looks good!')}>
-                        <Image key={index} source={avatar} style={styles.avatar} resizeMode="contain" />
+                    <TouchableOpacity key={index} onPress={() => Alert.alert('Looks good!')}>
+                        <Image source={avatar} style={styles.avatar} resizeMode="contain" />
                     </TouchableOpacity>        
                 ))}
             </View>
