@@ -42,6 +42,7 @@ export default Record;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: 'rgb(235, 243, 250)',
         alignItems: 'stretch',
         justifyContent: 'center',
     },
