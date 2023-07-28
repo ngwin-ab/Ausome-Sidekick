@@ -9,7 +9,7 @@ const Home = ({ navigation }) => {
         <View style={styles.container}>
             <TouchableOpacity
                 style={styles.kidbox}
-                onPress={() => navigation.navigate('AddChild')}>
+                onPress={() => navigation.navigate('ChildData')}>
                 <Image style={styles.avatar} source={require('../assets/Icons/Cat_3.png')} />
                 <Text style={styles.heading}>Child's name</Text>
             </TouchableOpacity>
