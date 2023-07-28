@@ -33,9 +33,9 @@ const AvatarBox = () => {
         return (
             <View style={styles.row}>
                 {avatars.map((avatar, index) => (
-                    <TouchableOpacity key={index} onPress={() => Alert.alert('Looks good!')}>
+                    <TouchableOpacity key={index} onPress={() => Alert.alert('Click Save to fisnish!')}>
                         <Image source={avatar} style={styles.avatar} resizeMode="contain" />
-                    </TouchableOpacity>        
+                    </TouchableOpacity>
                 ))}
             </View>
         );
@@ -53,20 +53,20 @@ const AddChild = ({ navigation }) => {
     return (
         <>
             <View style={styles.container}>
-                <Text>Add a child</Text>
-                <Separator />
-                <Text>Child's name:</Text>
+                <Text style={styles.heading}>Child's name:</Text>
                 <InputBox></InputBox>
                 <Separator />
-                <Text>Choose an avatar:</Text>
+                <Text style={styles.heading}>Choose an avatar:</Text>
                 <Separator />
                 <AvatarBox></AvatarBox>
                 <Separator />
-                <Button
-                    title='Save'
-                    color='#061464'
-                    onPress={() => navigation.dispatch(StackActions.pop(1))}
-                />
+                <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center'}}>
+                    <Button
+                        title='Save'
+                        color='rgb(86, 136, 159)'
+                        onPress={() => navigation.dispatch(StackActions.pop(1))}
+                    />
+                </View>
             </View>
         </>
     );
@@ -74,13 +74,19 @@ const AddChild = ({ navigation }) => {
 
 const Separator = () => <View style={styles.separator} />;
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgb(235, 243, 250)',
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        // justifyContent: 'center',
+    },
+
+    heading: {
+        fontWeight: 'bold',
+        fontSize: 25,
+        color: '#061464',
+        margin: 10,
     },
 
     separator: {
@@ -90,7 +96,7 @@ const styles = StyleSheet.create({
     input: {
         width: 200,
         height: 40,
-        margin: 12,
+        margin: 10,
         borderWidth: 1,
         padding: 10,
         backgroundColor: 'white'
@@ -105,6 +111,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 10,
+        marginHorizontal: 15
     },
 });
 

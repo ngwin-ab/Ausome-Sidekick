@@ -17,7 +17,7 @@ const Home = ({ navigation }) => {
             <TouchableOpacity
                 style={styles.addbox}
                 onPress={() => navigation.navigate('AddChild')}>
-                <Ionicons name='add-circle' size={90} color='rgb(167, 200, 215)' />
+                <Ionicons name='add-circle' size={90} color='rgb(86, 136, 159)' />
                 <Text style={styles.heading}>Add child</Text>
             </TouchableOpacity>
         </View>
