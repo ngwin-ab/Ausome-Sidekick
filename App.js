@@ -18,7 +18,7 @@ const App = () => {
   return (
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
       <NavigationContainer>
-        <Tab.Navigator options={{ headerShown: false }} 
+        <Tab.Navigator options={{ headerShown: false }}
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, size, color }) => {
               let iconName;
@@ -39,19 +39,22 @@ const App = () => {
 
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
-            {() => (<HomeStack.Navigator >
+            {() => (<HomeStack.Navigator
+              screenOptions={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)' } }}>
               <HomeStack.Group>
-                <HomeStack.Screen name="My kids" component={Home}  />
+                <HomeStack.Screen name="Mykids" component={Home} options={{ title: "Home" }} />
                 <HomeStack.Screen name="AddChild" component={AddChild} />
               </HomeStack.Group>
               <HomeStack.Group>
-                <HomeStack.Screen name="ChildData" component={ChildData} options={{ headerTitle: "Child's data" }}/>
-                <HomeStack.Screen name="Record" component={Record} options={{ headerTitle: "Record ABC" }}/>
+                <HomeStack.Screen name="ChildData" component={ChildData} options={{ title: "Child's data" }} />
+                <HomeStack.Screen name="Record" component={Record} options={{ title: "Record ABC" }} />
               </HomeStack.Group>
             </HomeStack.Navigator>)}
           </Tab.Screen>
-          <Tab.Screen name="Resources" component={Resources}></Tab.Screen>
-          <Tab.Screen name="Settings" component={Settings}></Tab.Screen>
+          <Tab.Screen name="Resources" component={Resources}
+            options={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)', } }} />
+          <Tab.Screen name="Settings" component={Settings}
+            options={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)', } }} />
         </Tab.Navigator>
       </NavigationContainer>
     </ScrollView>
