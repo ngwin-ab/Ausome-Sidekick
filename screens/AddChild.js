@@ -1,18 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Image, Alert } from 'react-native';
 import { StackActions } from '@react-navigation/native';
-
-const InputBox = () => {
-    const [text, onChangeText] = React.useState('');
-
-    return (
-        <TextInput
-            style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
-        />
-    );
-};
 
 const AvatarBox = () => {
     const avatars = [
@@ -32,8 +20,11 @@ const AvatarBox = () => {
     const AvatarsRow = ({ avatars }) => {
         return (
             <View style={styles.row}>
+                <Text style={styles.heading}>Choose an avatar:</Text>
+                <Separator />
                 {avatars.map((avatar, index) => (
-                    <TouchableOpacity key={index} onPress={() => Alert.alert('Click Save to fisnish!')}>
+                    // <TouchableOpacity key={index} onPress={() => Alert.alert('Click Save to fisnish!')}>
+                    <TouchableOpacity key={index}>
                         <Image source={avatar} style={styles.avatar} resizeMode="contain" />
                     </TouchableOpacity>
                 ))}
@@ -50,21 +41,43 @@ const AvatarBox = () => {
 }
 
 const AddChild = ({ navigation }) => {
+    const [text, onChangeText] = useState('');
+    const [name, setName] = useState('');
+    const saveData = () => {
+        const url = 'http://10.0.0.136:3000/kids';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name }),
+        })
+            .then((response) => response.json())
+            .catch((error) => {
+                console.error('Error saving data:', error);
+            });
+    };
+
     return (
         <>
             <View style={styles.container}>
                 <Text style={styles.heading}>Child's name:</Text>
-                <InputBox></InputBox>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={(text) => setName(text)}
+                    value={name}
+                />
                 <Separator />
-                <Text style={styles.heading}>Choose an avatar:</Text>
+                {/* <AvatarBox></AvatarBox> */}
                 <Separator />
-                <AvatarBox></AvatarBox>
-                <Separator />
-                <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center'}}>
+                <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
                     <Button
                         title='Save'
                         color='rgb(86, 136, 159)'
-                        onPress={() => navigation.dispatch(StackActions.pop(1))}
+                        onPress={() => {
+                            saveData();
+                            navigation.dispatch(StackActions.pop(1));
+                        }}
                     />
                 </View>
             </View>
