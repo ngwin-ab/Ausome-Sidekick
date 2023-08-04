@@ -1,5 +1,6 @@
-import { ScrollView, StatusBar } from 'react-native';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import React from 'react';
+import { View, StatusBar, Button, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import 'react-native-gesture-handler';
@@ -16,7 +17,7 @@ const HomeStack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
+    <View style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
       <NavigationContainer>
         <Tab.Navigator options={{ headerShown: false }}
           screenOptions={({ route }) => ({
@@ -36,18 +37,18 @@ const App = () => {
             tabBarActiveTintColor: '#061464',
             tabBarInactiveTintColor: 'gray',
           })}
-
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)' } }}>
               <HomeStack.Group>
-                <HomeStack.Screen name="Mykids" component={Home} options={{ title: "Home" }} />
-                <HomeStack.Screen name="AddChild" component={AddChild} />
+                <HomeStack.Screen name="MyKids" component={Home} options={{ title: "My kids" }} />
+                <HomeStack.Screen name="AddChild" component={AddChild} options={{ title: "Add a child" }} />
               </HomeStack.Group>
               <HomeStack.Group>
-                <HomeStack.Screen name="ChildData" component={ChildData} options={{ title: "Child's data" }} />
-                <HomeStack.Screen name="Record" component={Record} options={{ title: "Record ABC" }} />
+                <HomeStack.Screen name="ChildData" component={ChildData}
+                  options={{title: "Data"}} />
+                <HomeStack.Screen name="Record" component={Record} options={{ title: "Record ABC chart" }} />
               </HomeStack.Group>
             </HomeStack.Navigator>)}
           </Tab.Screen>
@@ -57,7 +58,7 @@ const App = () => {
             options={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)', } }} />
         </Tab.Navigator>
       </NavigationContainer>
-    </ScrollView>
+    </View>
   );
 };
 
