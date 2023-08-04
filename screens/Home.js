@@ -19,7 +19,6 @@ const ChildBox = ({ navigation }) => {
             setData(result);
         })
         .catch(error => {
-            // Handle any errors that occurred during the fetch or parsing of response
             console.error('Error fetching data:', error);
         });
     };

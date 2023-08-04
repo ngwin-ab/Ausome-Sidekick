@@ -64,7 +64,14 @@ const ChildData = ({ route, navigation }) => {
     if (chartsRecorded.length === 0) {
         return (
             <View style={styles.container}>
-                <Text style={{marginTop: 20}}>Let's record the first ABC chart for {name}!</Text>
+                <Text style={{ marginTop: 20 }}>Let's record the first ABC chart for {name}!</Text>
+                <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginVertical: 20 }}>
+                    <Button style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}
+                        color='rgb(86, 136, 159)'
+                        title='Record'
+                        onPress={() => navigation.navigate('Record', { kidId })}
+                    />
+                </View>
             </View>
         );
     }
@@ -81,12 +88,12 @@ const ChildData = ({ route, navigation }) => {
                 <Button
                     color='rgb(86, 136, 159)'
                     title='Record'
-                    onPress={() => navigation.navigate('Record')}
+                    onPress={() => navigation.navigate('Record',  { kidId })}
                 />
                 <Button
                     color='rgb(86, 136, 159)'
                     title='Export'
-                    onPress={() => navigation.navigate('Record')}
+                    onPress={() => navigation.navigate('Record',  { kidId })}
                 />
             </View>
         </SafeAreaView>
