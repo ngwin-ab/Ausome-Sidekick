@@ -74,7 +74,7 @@ const ChildData = ({ route, navigation }) => {
             <FlatList
                 data={chartsRecorded}
                 renderItem={renderItem}
-                keyExtractor={chartsRecorded => chartsRecorded.id}
+                keyExtractor={item => item._id}
                 extraData={selectedId}
             />
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
