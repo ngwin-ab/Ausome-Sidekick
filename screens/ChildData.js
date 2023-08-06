@@ -16,9 +16,10 @@ import { useIsFocused } from '@react-navigation/native';
 
 const ChildData = ({ route, navigation }) => {
     const { kidId } = route.params;
-    const [selectedId, setSelectedId] = useState();
+    const [selectedId, setSelectedId] = useState('');
     const [name, setName] = useState('');
     const [chartsRecorded, setChartsRecorded] = useState([]);
+    const [chartId, setChartId] = useState('');
 
     const isFocused = useIsFocused();
 
@@ -31,6 +32,7 @@ const ChildData = ({ route, navigation }) => {
             });
             const data = await response.json();
             setChartsRecorded(data.chartsRecorded);
+            setChartId(data.chartsRecorded._id)
             setName(data.name);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -59,7 +61,10 @@ const ChildData = ({ route, navigation }) => {
             <Item
                 item={item}
                 key={item.id}
-                onPress={() => setSelectedId(item.id)}
+                onPress={() => {
+                    setSelectedId(item.id);
+                    navigation.navigate('EditChart', { chart: item, kidName: name });
+                }}
             />
         );
     };
