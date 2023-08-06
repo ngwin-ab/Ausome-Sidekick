@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView, SafeAreaView, Button, View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useIsFocused } from '@react-navigation/native';
 
 
 const ChildBox = ({ navigation }) => {
     const [data, setData] = useState([]);
-    
+    const isFocused = useIsFocused();
+
     const getData = () => {
         const url = 'http://10.0.0.136:3000/kids';
         fetch(url, {
@@ -24,8 +26,8 @@ const ChildBox = ({ navigation }) => {
     };
 
     useEffect(() => {
-        getData();
-    }, []);
+        isFocused && getData();
+    }, [isFocused]);
 
     const [selectedId, setSelectedId] = useState();
 
