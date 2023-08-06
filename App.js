@@ -11,6 +11,7 @@ import Settings from './screens/Settings';
 import ChildData from './screens/ChildData';
 import Record from './screens/Record';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import EditChart from './screens/EditChart';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -52,6 +53,7 @@ const App = () => {
               <HomeStack.Group>
                 <HomeStack.Screen name="ChildData" component={ChildData}
                   options={{ title: "Data" }} />
+                <HomeStack.Screen name="EditChart" component={EditChart}  options={{ title: "Edit Chart" }} />
                 <HomeStack.Screen name="Record" component={Record} options={{ title: "Record ABC chart" }} />
               </HomeStack.Group>
             </HomeStack.Navigator>)}
