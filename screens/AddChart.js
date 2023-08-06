@@ -21,7 +21,7 @@ const InputBox = ({ label, value, onChangeText }) => {
     );
 };
 
-const Record = ({ route, navigation }) => {
+const AddChart = ({ route, navigation }) => {
     const { kidId } = route.params;
 
     const [data, setData] = useState([]);
@@ -109,7 +109,7 @@ const Record = ({ route, navigation }) => {
     );
 };
 
-export default Record;
+export default AddChart;
 
 // const Record = ({ route, navigation }) => {
 

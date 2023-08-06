@@ -76,8 +76,8 @@ const ChildData = ({ route, navigation }) => {
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginVertical: 20 }}>
                     <Button style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}
                         color='rgb(86, 136, 159)'
-                        title='Record'
-                        onPress={() => navigation.navigate('Record', { kidId })}
+                        title='Add chart'
+                        onPress={() => navigation.navigate('AddChart', { kidId })}
                     />
                 </View>
             </View>
@@ -95,13 +95,13 @@ const ChildData = ({ route, navigation }) => {
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
                 <Button
                     color='rgb(86, 136, 159)'
-                    title='Record'
-                    onPress={() => navigation.navigate('Record',  { kidId })}
+                    title='Add Chart'
+                    onPress={() => navigation.navigate('AddChart',  { kidId })}
                 />
                 <Button
                     color='rgb(86, 136, 159)'
                     title='Export'
-                    onPress={() => navigation.navigate('Record',  { kidId })}
+                    onPress={() => navigation.navigate('AddChart',  { kidId })}
                 />
             </View>
         </SafeAreaView>
