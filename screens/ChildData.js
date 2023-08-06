@@ -12,12 +12,15 @@ import {
     Button
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useIsFocused } from '@react-navigation/native';
 
 const ChildData = ({ route, navigation }) => {
     const { kidId } = route.params;
     const [selectedId, setSelectedId] = useState();
     const [name, setName] = useState('');
     const [chartsRecorded, setChartsRecorded] = useState([]);
+
+    const isFocused = useIsFocused();
 
     const getData = async () => {
         try {
@@ -35,8 +38,8 @@ const ChildData = ({ route, navigation }) => {
     };
 
     useEffect(() => {
-        getData();
-    }, []);
+        isFocused && getData();
+    }, [isFocused]);
 
     const Item = ({ item, onPress }) => (
         <TouchableOpacity onPress={onPress} style={[styles.item]}>
