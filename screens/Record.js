@@ -64,9 +64,6 @@ const Record = ({ route, navigation }) => {
                 body: JSON.stringify(formValues),
             });
             const data = await response.json();
-            // Do something with the response data if needed
-            console.log(data);
-            navigation.dispatch(StackActions.pop(1));
         } catch (error) {
             console.error('Error saving data:', error);
         }
