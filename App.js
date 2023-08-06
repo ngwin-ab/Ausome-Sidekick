@@ -40,22 +40,36 @@ const App = () => {
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
-              screenOptions={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)' } }}>
+              screenOptions={{
+                headerStyle: { backgroundColor: 'rgb(86, 136, 159)' }, headerTitleStyle: {
+                  color: 'white', fontWeight: 'bold'
+                }
+              }}>
               <HomeStack.Group>
                 <HomeStack.Screen name="MyKids" component={Home} options={{ title: "My kids" }} />
                 <HomeStack.Screen name="AddChild" component={AddChild} options={{ title: "Add a child" }} />
               </HomeStack.Group>
               <HomeStack.Group>
                 <HomeStack.Screen name="ChildData" component={ChildData}
-                  options={{title: "Data"}} />
+                  options={{ title: "Data" }} />
                 <HomeStack.Screen name="Record" component={Record} options={{ title: "Record ABC chart" }} />
               </HomeStack.Group>
             </HomeStack.Navigator>)}
           </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
-            options={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)', } }} />
+            options={{
+              headerStyle: { backgroundColor: 'rgb(86, 136, 159)' }, headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              }
+            }} />
           <Tab.Screen name="Settings" component={Settings}
-            options={{ headerStyle: { backgroundColor: 'rgb(196, 216, 183)', } }} />
+            options={{
+              headerStyle: { backgroundColor: 'rgb(86, 136, 159)' }, headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              }
+            }} />
         </Tab.Navigator>
       </NavigationContainer>
     </View>
