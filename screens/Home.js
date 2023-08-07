@@ -100,18 +100,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
         alignSelf: "center"
     },
-    // kidbox: {
-    //     borderColor: 'white',
-    //     borderRadius: 5,
-    //     backgroundColor: 'rgb(196, 216, 228)',
-    //     borderWidth: 1,
-    //     flexDirection: 'row',  
-    //     alignSelf: 'center',
-    //     margin: 10,
-    //     paddingHorizontal: 20,
-    //     paddingVertical: 10,
-    //     alignItems: 'center',
-    // }, 
 
     addbox: {
         width: 200,
