@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 
 
-const ChildBox = ({ navigation }) => {
+const ChildList = ({ navigation }) => {
     const [data, setData] = useState([]);
     const isFocused = useIsFocused();
 
@@ -67,13 +67,7 @@ const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            {/* <TouchableOpacity
-                style={styles.kidbox}
-                onPress={() => navigation.navigate('ChildData')}> */}
-            {/* <Image style={styles.avatar} source={require('../assets/Icons/Cat_3.png')} /> */}
-            {/* <Text style={styles.heading}>{childName}</Text>
-            </TouchableOpacity> */}
-            <ChildBox navigation={navigation} />
+            <ChildList navigation={navigation} />
             <Separator />
             <TouchableOpacity
                 style={styles.addbox}
