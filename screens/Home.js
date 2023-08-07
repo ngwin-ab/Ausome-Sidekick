@@ -4,9 +4,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 
 
-const ChildBox = ({ navigation }) => {
+const ChildBox = ({ navigation, editMode }) => {
     const [data, setData] = useState([]);
     const isFocused = useIsFocused();
+    const [selectedId, setSelectedId] = useState();
 
     const getData = () => {
         const url = 'http://10.0.0.136:3000/kids';
@@ -16,33 +17,51 @@ const ChildBox = ({ navigation }) => {
                 'Content-Type': 'application/json',
             }
         })
-        .then(response => response.json())
-        .then(result => {
-            setData(result);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+            .then(response => response.json())
+            .then(result => {
+                setData(result);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    };
+
+    const Item = ({ item, onPress }) => (
+        <TouchableOpacity onPress={onPress} style={styles.item}>
+            <Text>{item.name}</Text>
+            {editMode && (
+                <View style={styles.buttonsContainer}>
+                    <TouchableOpacity style={styles.editButton} onPress={() => handleEditItem(item)}>
+                        <Text>Edit</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteItem(item)}>
+                        <Text>Delete</Text>
+                    </TouchableOpacity>
+                </View>
+            )}
+        </TouchableOpacity>
+    );
+
+    const toggleEditMode = () => {
+        setEditMode((prevEditMode) => !prevEditMode);
     };
 
     useEffect(() => {
         isFocused && getData();
     }, [isFocused]);
 
-    const [selectedId, setSelectedId] = useState();
+    const handleEditItem = (item) => {
 
-    const Item = ({ item, onPress }) => (
-        <TouchableOpacity onPress={onPress} style={styles.item}>
-            <Text>{item.name}</Text>
-        </TouchableOpacity>
-    );
-    
+    };
+
+    const handleDeleteItem = (item) => {
+
+    };
+
     const renderItem = ({ item }) => {
-
         return (
             <Item
                 item={item}
-                key={item.id}
                 onPress={() => {
                     setSelectedId(item.id);
                     navigation.navigate('ChildData', { kidId: item.id });
@@ -61,9 +80,15 @@ const ChildBox = ({ navigation }) => {
             />
         </SafeAreaView>
     );
-}
+};
 
 const Home = ({ navigation }) => {
+
+    const [editMode, setEditMode] = useState(false);
+
+    const toggleEditMode = () => {
+        setEditMode((prevEditMode) => !prevEditMode);
+    };
 
     return (
         <View style={styles.container}>
@@ -73,14 +98,26 @@ const Home = ({ navigation }) => {
             {/* <Image style={styles.avatar} source={require('../assets/Icons/Cat_3.png')} /> */}
             {/* <Text style={styles.heading}>{childName}</Text>
             </TouchableOpacity> */}
-            <ChildBox navigation={navigation} />
+            <ChildBox navigation={navigation} editMode={editMode}/>
             <Separator />
-            <TouchableOpacity
+            {/* <TouchableOpacity
                 style={styles.addbox}
                 onPress={() => navigation.navigate('AddChild')}>
                 <Ionicons name='add-circle' size={50} color='rgb(86, 136, 159)' />
                 <Text style={styles.heading}>Add child</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
+                <Button
+                    color='rgb(86, 136, 159)'
+                    title='Add Child'
+                    onPress={() => navigation.navigate('AddChild')}
+                />
+                <Button
+                    color='rgb(86, 136, 159)'
+                    onPress={toggleEditMode}
+                    title={editMode ? 'Done' : 'Edit'}
+                />
+            </View>
         </View>
     );
 }
@@ -104,8 +141,51 @@ const styles = StyleSheet.create({
         height: 110,
         marginVertical: 8,
         marginHorizontal: 15,
-        alignSelf: "center"
+        alignSelf: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
+
+    buttonsContainer: {
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+
+    editButton: {
+        backgroundColor: 'lightblue',
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        marginRight: 10,
+        alignSelf: 'flex-end'
+    },
+
+    deleteButton: {
+        backgroundColor: 'lightpink',
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+    },
+
+    headerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+    },
+
+    editHeaderButton: {
+        backgroundColor: 'lightblue',
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        alignItems: 'flex-end',
+        marginVertical: 10,
+
+    },
+
     // kidbox: {
     //     borderColor: 'white',
     //     borderRadius: 5,
