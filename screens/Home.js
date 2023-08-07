@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ScrollView, SafeAreaView, Button, View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
-
+import AvatarImages from "../components/AvatarImages";
 
 const ChildList = ({ navigation }) => {
     const [data, setData] = useState([]);
@@ -33,7 +33,8 @@ const ChildList = ({ navigation }) => {
 
     const Item = ({ item, onPress }) => (
         <TouchableOpacity onPress={onPress} style={styles.item}>
-            <Text>{item.name}</Text>
+            <AvatarImages index={item.avatarIndex} />
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#061464'}}>{item.name}</Text>
         </TouchableOpacity>
     );
     
@@ -90,7 +91,9 @@ const styles = StyleSheet.create({
     },
 
     item: {
+        flex: 1, 
         backgroundColor: 'rgb(196, 216, 228)',
+        borderWidth: 1,
         borderColor: 'white',
         borderRadius: 5,
         padding: 20,
@@ -98,7 +101,9 @@ const styles = StyleSheet.create({
         height: 110,
         marginVertical: 8,
         marginHorizontal: 15,
-        alignSelf: "center"
+        alignSelf: 'center',
+        flexDirection: 'row',  
+        alignItems: 'center',
     },
 
     addbox: {
