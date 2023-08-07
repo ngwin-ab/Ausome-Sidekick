@@ -43,7 +43,7 @@ const AddChild = ({ navigation }) => {
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
                     <Button
                         title='Save'
-                        color='rgb(86, 136, 159)'
+                        color='rgb(96, 147, 171)'
                         onPress={() => {
                             saveData();
                         }}
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#061464',
+        color: '#3c5e6e',
         margin: 10,
     },
 

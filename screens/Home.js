@@ -34,7 +34,7 @@ const ChildList = ({ navigation }) => {
     const Item = ({ item, onPress }) => (
         <TouchableOpacity onPress={onPress} style={styles.item}>
             <AvatarImages index={item.avatarIndex} />
-            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#061464'}}>{item.name}</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e'}}>{item.name}</Text>
         </TouchableOpacity>
     );
     
@@ -73,7 +73,7 @@ const Home = ({ navigation }) => {
             <TouchableOpacity
                 style={styles.addbox}
                 onPress={() => navigation.navigate('AddChild')}>
-                <Ionicons name='add-circle' size={50} color='rgb(86, 136, 159)' />
+                <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
                 <Text style={styles.heading}>Add child</Text>
             </TouchableOpacity>
         </View>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#061464'
+        color: '#3c5e6e'
     },
 
     avatar: {

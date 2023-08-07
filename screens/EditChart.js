@@ -120,7 +120,7 @@ const EditChart = ({ route, navigation }) => {
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
                 <Button
-                    color='rgb(86, 136, 159)'
+                    color='rgb(96, 147, 171)'
                     title='Save Chart'
                     onPress={() => {
                         saveData();
@@ -128,7 +128,7 @@ const EditChart = ({ route, navigation }) => {
                     }}
                 />
                 <Button
-                    color='rgb(86, 136, 159)'
+                    color='rgb(96, 147, 171)'
                     title='Delete Chart'
                     onPress={() => handleDeleteChart()}
                 />
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#061464',
+        color: '#3c5e6e',
         margin: 10,
     },
 });

@@ -75,7 +75,7 @@ const ChildData = ({ route, navigation }) => {
                 <Text style={{ marginTop: 20 }}>Let's record the first ABC chart for {name}!</Text>
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginVertical: 20 }}>
                     <Button style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}
-                        color='rgb(86, 136, 159)'
+                        color='rgb(96, 147, 171)'
                         title='Add chart'
                         onPress={() => navigation.navigate('AddChart', { kidId })}
                     />
@@ -94,12 +94,12 @@ const ChildData = ({ route, navigation }) => {
             />
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
                 <Button
-                    color='rgb(86, 136, 159)'
+                    color='rgb(96, 147, 171)'
                     title='Add Chart'
                     onPress={() => navigation.navigate('AddChart',  { kidId })}
                 />
                 <Button
-                    color='rgb(86, 136, 159)'
+                    color='rgb(96, 147, 171)'
                     title='Export'
                     onPress={() => navigation.navigate('AddChart',  { kidId })}
                 />
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#061464'
+        color: '#3c5e6e'
     },
 
     innerText: {
@@ -138,11 +138,11 @@ const styles = StyleSheet.create({
 
     heading: {
         borderWidth: 1,
-        borderColor: 'rgb(86, 136, 159)',
+        borderColor: 'rgb(96, 147, 171)',
         paddingHorizontal: 10,
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#061464',
+        color: '#3c5e6e',
         marginLeft: 15,
     },
 });

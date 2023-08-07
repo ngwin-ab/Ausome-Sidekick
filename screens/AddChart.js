@@ -106,7 +106,7 @@ const AddChart = ({ route, navigation }) => {
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginTop: 20 }}>
                     <Button
                         title="Save"
-                        color="rgb(86, 136, 159)"
+                        color="rgb(96, 147, 171)"
                         onPress={() => {
                             saveData();
                             navigation.dispatch(StackActions.pop(1));
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#061464',
+        color: '#3c5e6e',
         margin: 10,
     },
 });

@@ -13,15 +13,15 @@ const avatars = [
 ];
 
 const AvatarImages = ({ index }) => {
-    return <Image source={avatars[index]} style={styles.avatar} />;
+    return <Image source={avatars[index]} style={styles.avatar} resizeMode='contain'/>;
 };
 
 export default AvatarImages;
 
 const styles = StyleSheet.create({
     avatar: {
-        width: 90,
-        height: 90,
+        width: 95,
+        height: 95,
         marginRight: 50
     },
 })

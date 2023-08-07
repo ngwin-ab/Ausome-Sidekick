@@ -33,16 +33,15 @@ const App = () => {
                 iconName = focused ? 'search' : 'search-outline';
               }
               return <Ionicons name={iconName} size={size} color={color} />;
-            }
-            ,
-            tabBarActiveTintColor: '#061464',
+            },
+            tabBarActiveTintColor: 'rgb(86, 136, 159)',
             tabBarInactiveTintColor: 'gray',
           })}
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: 'rgb(86, 136, 159)' }, headerTitleStyle: {
+                headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTitleStyle: {
                   color: 'white', fontWeight: 'bold'
                 }
               }}>
@@ -60,14 +59,14 @@ const App = () => {
           </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
-              headerStyle: { backgroundColor: 'rgb(86, 136, 159)' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
               headerTitleStyle: {
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
-              headerStyle: { backgroundColor: 'rgb(86, 136, 159)' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
               headerTitleStyle: {
                 fontWeight: 'bold',
               }
