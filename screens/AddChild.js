@@ -20,10 +20,8 @@ const AvatarBox = () => {
     const AvatarsRow = ({ avatars }) => {
         return (
             <View style={styles.row}>
-                <Text style={styles.heading}>Choose an avatar:</Text>
                 <Separator />
                 {avatars.map((avatar, index) => (
-                    // <TouchableOpacity key={index} onPress={() => Alert.alert('Click Save to fisnish!')}>
                     <TouchableOpacity key={index}>
                         <Image source={avatar} style={styles.avatar} resizeMode="contain" />
                     </TouchableOpacity>
@@ -68,7 +66,8 @@ const AddChild = ({ navigation }) => {
                     value={name}
                 />
                 <Separator />
-                {/* <AvatarBox></AvatarBox> */}
+                <Text style={styles.heading}>Choose an avatar:</Text>
+                <AvatarBox></AvatarBox>
                 <Separator />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
                     <Button
