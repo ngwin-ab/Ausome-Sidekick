@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Image, Alert } from 'react-native';
 import { StackActions } from '@react-navigation/native';
 
-const AvatarBox = () => {
+const AvatarBox = ({ onSelectAvatar } ) => {
     const avatars = [
         require('../assets/Icons/Cat_1.png'),
         require('../assets/Icons/Cat_2.png'),
@@ -22,7 +22,7 @@ const AvatarBox = () => {
             <View style={styles.row}>
                 <Separator />
                 {avatars.map((avatar, index) => (
-                    <TouchableOpacity key={index}>
+                    <TouchableOpacity key={index} onPress={() => onSelectAvatar(avatar)} >
                         <Image source={avatar} style={styles.avatar} resizeMode="contain" />
                     </TouchableOpacity>
                 ))}
@@ -41,6 +41,8 @@ const AvatarBox = () => {
 const AddChild = ({ navigation }) => {
     const [text, onChangeText] = useState('');
     const [name, setName] = useState('');
+    const [selectedAvatar, setSelectedAvatar] = useState(null);
+
     const saveData = () => {
         const url = 'http://10.0.0.136:3000/kids';
         fetch(url, {
@@ -48,9 +50,13 @@ const AddChild = ({ navigation }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name }),
+            body: JSON.stringify({ name, avatar: selectedAvatar }),
         })
             .then((response) => response.json())
+            .then((data) => {
+                console.log('Child data saved:', data);
+                navigation.dispatch(StackActions.pop(1));
+            })
             .catch((error) => {
                 console.error('Error saving data:', error);
             });
@@ -67,7 +73,7 @@ const AddChild = ({ navigation }) => {
                 />
                 <Separator />
                 <Text style={styles.heading}>Choose an avatar:</Text>
-                <AvatarBox></AvatarBox>
+                <AvatarBox onSelectAvatar={(avatar) => setSelectedAvatar(avatar)}></AvatarBox>
                 <Separator />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
                     <Button
@@ -75,7 +81,6 @@ const AddChild = ({ navigation }) => {
                         color='rgb(86, 136, 159)'
                         onPress={() => {
                             saveData();
-                            navigation.dispatch(StackActions.pop(1));
                         }}
                     />
                 </View>

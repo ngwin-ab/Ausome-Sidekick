@@ -33,7 +33,8 @@ const ChildList = ({ navigation }) => {
 
     const Item = ({ item, onPress }) => (
         <TouchableOpacity onPress={onPress} style={styles.item}>
-            <Text>{item.name}</Text>
+            <Image source={item.avatar} style={styles.avatar} resizeMode="contain" />
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#061464'}}>{item.name}</Text>
         </TouchableOpacity>
     );
     
@@ -90,7 +91,9 @@ const styles = StyleSheet.create({
     },
 
     item: {
+        flex: 1, 
         backgroundColor: 'rgb(196, 216, 228)',
+        borderWidth: 1,
         borderColor: 'white',
         borderRadius: 5,
         padding: 20,
@@ -98,20 +101,15 @@ const styles = StyleSheet.create({
         height: 110,
         marginVertical: 8,
         marginHorizontal: 15,
-        alignSelf: "center"
+        alignSelf: 'center',
+        flexDirection: 'row',  
+        alignItems: 'center',
     },
-    // kidbox: {
-    //     borderColor: 'white',
-    //     borderRadius: 5,
-    //     backgroundColor: 'rgb(196, 216, 228)',
-    //     borderWidth: 1,
-    //     flexDirection: 'row',  
-    //     alignSelf: 'center',
-    //     margin: 10,
-    //     paddingHorizontal: 20,
-    //     paddingVertical: 10,
-    //     alignItems: 'center',
-    // }, 
+    
+    avatar: {
+        width: 80,
+        height: 80,
+    },
 
     addbox: {
         width: 200,
