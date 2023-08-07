@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
 
     item: {
         backgroundColor: 'rgb(196, 216, 228)',
+        borderWidth: 1,
         borderColor: 'white',
         borderRadius: 5,
         padding: 20,
