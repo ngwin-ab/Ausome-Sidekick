@@ -1,47 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Image, Alert } from 'react-native';
 import { StackActions } from '@react-navigation/native';
-
-const AvatarBox = ({ onSelectAvatar } ) => {
-    const avatars = [
-        require('../assets/Icons/Cat_1.png'),
-        require('../assets/Icons/Cat_2.png'),
-        require('../assets/Icons/Cat_3.png'),
-        require('../assets/Icons/Cat_4.png'),
-        require('../assets/Icons/Cat_5.png'),
-        require('../assets/Icons/Cat_6.png'),
-        require('../assets/Icons/Cat_7.png'),
-        require('../assets/Icons/Cat_8.png'),
-    ];
-
-    const row1 = avatars.slice(0, 4);
-    const row2 = avatars.slice(4);
-
-    const AvatarsRow = ({ avatars }) => {
-        return (
-            <View style={styles.row}>
-                <Separator />
-                {avatars.map((avatar, index) => (
-                    <TouchableOpacity key={index} onPress={() => onSelectAvatar(avatar)} >
-                        <Image source={avatar} style={styles.avatar} resizeMode="contain" />
-                    </TouchableOpacity>
-                ))}
-            </View>
-        );
-    };
-    return (
-        <View>
-            <AvatarsRow avatars={row1} />
-            <AvatarsRow avatars={row2} />
-        </View>
-
-    );
-}
+import AvatarList from '../components/AvatarList';
 
 const AddChild = ({ navigation }) => {
     const [text, onChangeText] = useState('');
     const [name, setName] = useState('');
-    const [selectedAvatar, setSelectedAvatar] = useState(null);
+    const [selectedAvatarIndex, setSelectedAvatarIndex] = useState(null);
 
     const saveData = () => {
         const url = 'http://10.0.0.136:3000/kids';
@@ -50,7 +15,7 @@ const AddChild = ({ navigation }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, avatar: selectedAvatar }),
+            body: JSON.stringify({ name, avatarIndex: selectedAvatarIndex }),
         })
             .then((response) => response.json())
             .then((data) => {
@@ -73,7 +38,7 @@ const AddChild = ({ navigation }) => {
                 />
                 <Separator />
                 <Text style={styles.heading}>Choose an avatar:</Text>
-                <AvatarBox onSelectAvatar={(avatar) => setSelectedAvatar(avatar)}></AvatarBox>
+                <AvatarList onSelectAvatar={(index) => setSelectedAvatarIndex(index)}></AvatarList>
                 <Separator />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
                     <Button
@@ -122,13 +87,15 @@ const styles = StyleSheet.create({
     avatar: {
         width: 80,
         height: 80,
+        marginVertical: 10,
     },
 
-    row: {
+    avatarList: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 10,
-        marginHorizontal: 15
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        paddingHorizontal: 15,
     },
 });
 
