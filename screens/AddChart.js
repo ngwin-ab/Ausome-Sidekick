@@ -23,8 +23,9 @@ const InputBox = ({ label, value, onChangeText }) => {
 
 const AddChart = ({ route, navigation }) => {
     const { kidId } = route.params;
-
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
     const [formValues, setFormValues] = useState({
         setting: '',
         antecedent: '',
@@ -50,10 +51,13 @@ const AddChart = ({ route, navigation }) => {
     };
 
     useEffect(() => {
+        setIsLoading(true);
         getData();
+        setIsLoading(false);
     }, []);
 
     const saveData = async () => {
+        setIsLoading(true);
         const url = `http://10.0.0.136:3000/kids/${kidId}`;
         try {
             const response = await fetch(url, {
@@ -64,12 +68,17 @@ const AddChart = ({ route, navigation }) => {
                 body: JSON.stringify(formValues),
             });
             const data = await response.json();
+            setIsLoading(false);
         } catch (error) {
             console.error('Error saving data:', error);
         }
     };
 
-    return (
+    return (isLoading ? (
+        <View>
+            <Text>Loading...</Text>
+        </View>
+    ) : (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
             <View style={styles.container}>
                 <Text style={styles.heading}>{data.name}</Text>
@@ -105,105 +114,11 @@ const AddChart = ({ route, navigation }) => {
                     />
                 </View>
             </View>
-        </ScrollView>
-    );
+        </ScrollView>)
+    )
 };
 
 export default AddChart;
-
-// const Record = ({ route, navigation }) => {
-
-//     const { kidId } = route.params;
-
-//     const [data, setData] = useState([]);
-//     const [text, onChangeText] = useState('');
-//     const [setting, setSetting] = useState('');
-//     const [antecedent, setAntecedent] = useState('');
-//     const [behavior, setBehavior] = useState('');
-//     const [consequence, setConsequence] = useState('');
-
-//     const getData = () => {
-//         const url = `http://10.0.0.136:3000/kids/${kidId}`;
-//         fetch(url, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             }
-//         })
-//             .then(response => response.json())
-//             .then(result => {
-//                 setData(result);
-//             })
-//             .catch(error => {
-//                 console.error('Error fetching data:', error);
-//             });
-//     };
-
-//     useEffect(() => {
-//         getData();
-//     }, []);
-
-//     const saveData = async () => {
-//         const url = `http://10.0.0.136:3000/kids/${kidId}`;
-//         try {
-//             const response = await fetch(url, {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                 },
-//                 body: JSON.stringify({ antecedent, behavior, consequence, setting }),
-//             });
-//             const data = await response.json();
-//             // Do something with the response data if needed
-//             console.log(data);
-//             navigation.dispatch(StackActions.pop(1));
-//         } catch (error) {
-//             console.error('Error saving data:', error);
-//         }
-//     };
-
-//     const InputBox = ({ label, value, onChangeText }) => {
-//         return (
-//             <View>
-//                 <TextInput
-//                     style={{ height: 75, marginHorizontal: 15 }}
-//                     mode="outlined"
-//                     multiline
-//                     label={label}
-//                     value={value}
-//                     onChangeText={onChangeText}
-//                 />
-//             </View>
-//         );
-//     };
-
-//     return (
-//         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
-//             <View style={styles.container}>
-//                 <Text style={styles.heading}>{data.name}</Text>
-//                 <Separator />
-//                 <InputBox label="Setting" onChangeText={(text) => setSetting(text)}
-//                     value={setting}></InputBox>
-//                 <InputBox label="Antecedent" onChangeText={(text) => setAntecedent(text)}
-//                     value={antecedent}></InputBox>
-//                 <InputBox label="Behavior" onChangeText={(text) => setBehavior(text)} value={behavior}></InputBox>
-//                 <InputBox label="Consequence" onChangeText={(text) => setConsequence(text)} value={consequence}></InputBox>
-//                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginTop: 20 }}>
-//                     <Button
-//                         title='Save'
-//                         color='rgb(86, 136, 159)'
-//                         onPress={() => {
-//                             saveData();
-//                             navigation.dispatch(StackActions.pop(1));
-//                         }}
-//                     />
-//                 </View>
-//             </View>
-//         </ScrollView>
-//     );
-// }
-
-// export default Record;
 
 const styles = StyleSheet.create({
     container: {
