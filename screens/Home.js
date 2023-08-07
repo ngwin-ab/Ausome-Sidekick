@@ -4,9 +4,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 
 
-const ChildList = ({ navigation }) => {
+const ChildList = ({ navigation, onDataReceived }) => {
     const [data, setData] = useState([]);
     const isFocused = useIsFocused();
+    const [selectedId, setSelectedId] = useState();
 
     const getData = () => {
         const url = 'http://10.0.0.136:3000/kids';
@@ -16,27 +17,27 @@ const ChildList = ({ navigation }) => {
                 'Content-Type': 'application/json',
             }
         })
-        .then(response => response.json())
-        .then(result => {
-            setData(result);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+            .then(response => response.json())
+            .then(result => {
+                setData(result);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
     };
 
     useEffect(() => {
         isFocused && getData();
+        onDataReceived(data);
     }, [isFocused]);
 
-    const [selectedId, setSelectedId] = useState();
 
     const Item = ({ item, onPress }) => (
         <TouchableOpacity onPress={onPress} style={styles.item}>
             <Text>{item.name}</Text>
         </TouchableOpacity>
     );
-    
+
     const renderItem = ({ item }) => {
 
         return (
@@ -64,6 +65,25 @@ const ChildList = ({ navigation }) => {
 }
 
 const Home = ({ navigation }) => {
+    const [childData, setChildData] = useState([]);
+
+    const onDataReceived = (data) => {
+        setChildData(data);
+    };
+
+    if (childData.length === 0) {
+        return (
+            <View style={styles.container}>
+                <Text style={{ marginTop: 20 }}>Add a child to track behaviors</Text>
+                <TouchableOpacity
+                    style={styles.addbox}
+                    onPress={() => navigation.navigate('AddChild')}>
+                    <Ionicons name='add-circle' size={50} color='rgb(86, 136, 159)' />
+                    <Text style={styles.heading}>Add child</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
 
     return (
         <View style={styles.container}>
