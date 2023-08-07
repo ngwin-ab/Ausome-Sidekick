@@ -10,7 +10,7 @@ const InputBox = ({ label, value, onChangeText }) => {
     return (
         <View>
             <TextInput
-                style={{ height: 75, marginHorizontal: 15 }}
+                style={{ height: 78, marginHorizontal: 15, marginVertical: 5 }}
                 mode="outlined"
                 multiline
                 label={label}
