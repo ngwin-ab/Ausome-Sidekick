@@ -37,9 +37,7 @@ const Resources = ({ navigation }) => {
         return (
             <View style={{ height: '25%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
                 <Text>Find resources near you:</Text>
-
                 <SearchBar
-                    placeholder="Type Here..."
                     ref={search => this.search = search}
                     lightTheme={true}
                     round={true}
@@ -66,10 +64,7 @@ const Resources = ({ navigation }) => {
             <View style={{ height: '75%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
                 <MapView style={{ ...StyleSheet.absoluteFillObject }}
                     region={mapRegion}>
-
-                    <Marker coordinate={mapRegion} title='Marker' />
-
-
+                    <Marker coordinate={mapRegion} title='Current location' />
                 </MapView>
             </View>
         );
