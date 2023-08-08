@@ -11,6 +11,7 @@ import Settings from './screens/Settings';
 import ChildData from './screens/ChildData';
 import AddChart from './screens/AddChart';
 import EditChart from './screens/EditChart';
+import Practice from './screens/Practice';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -31,6 +32,8 @@ const App = () => {
                 iconName = focused ? 'settings' : 'settings-outline';
               } else if (route.name === 'Resources') {
                 iconName = focused ? 'search' : 'search-outline';
+              } else if (route.name === 'Practice') {
+                iconName = focused ? 'videocam' : 'videocam-outline';
               }
               return <Ionicons name={iconName} size={size} color={color} />;
             },
@@ -52,11 +55,18 @@ const App = () => {
               <HomeStack.Group>
                 <HomeStack.Screen name="ChildData" component={ChildData}
                   options={{ title: "Data" }} />
-                <HomeStack.Screen name="EditChart" component={EditChart}  options={{ title: "Edit Chart" }} />
+                <HomeStack.Screen name="EditChart" component={EditChart} options={{ title: "Edit Chart" }} />
                 <HomeStack.Screen name="AddChart" component={AddChart} options={{ title: "Record ABC chart" }} />
               </HomeStack.Group>
             </HomeStack.Navigator>)}
           </Tab.Screen>
+          <Tab.Screen name="Practice" component={Practice}
+            options={{
+              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              }
+            }} />
           <Tab.Screen name="Resources" component={Resources}
             options={{
               headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
