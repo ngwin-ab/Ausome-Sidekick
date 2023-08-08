@@ -30,21 +30,28 @@ const Resources = ({ navigation }) => {
         });
     };
 
-    useEffect (() => {
+    useEffect(() => {
         getLocation();
     }, []);
 
     const SearchSection = () => {
+        const [search, setSearch] = useState('');
+
+        const updateSearch = (newSearch) => {
+            setSearch(newSearch);
+        };
+
         return (
             <View style={{ height: '25%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
-                <Text>Find resources near you:</Text>
+                <Text></Text>
                 <SearchBar
-                    ref={search => this.search = search}
+                    onChangeText={updateSearch}
+                    value={search}
                     lightTheme={true}
                     round={true}
                     containerStyle={{ backgroundColor: 'rgb(235, 243, 250)' }}
                 />
-                <View style={{ justifyContent: 'space-evenly', flexDirection: 'row', marginTop: 10 }}>
+                <View style={{ justifyContent: 'space-evenly', flexDirection: 'row', marginTop: 10}}>
                     <Button
                         color='rgb(96, 147, 171)'
                         title='Search'
