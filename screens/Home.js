@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 import AvatarImages from "../components/AvatarImages";
 
-const ChildList = ({ navigation, deleteMode }) => {
+const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
     const [data, setData] = useState([]);
     const isFocused = useIsFocused();
     const [selectedId, setSelectedId] = useState();
@@ -20,6 +20,7 @@ const ChildList = ({ navigation, deleteMode }) => {
             .then(response => response.json())
             .then(result => {
                 setData(result);
+                onChildCountChange(result.length);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -30,17 +31,19 @@ const ChildList = ({ navigation, deleteMode }) => {
         isFocused && getData();
     }, [isFocused]);
 
-    const Item = ({ item, onPress, handleEvent, deleteKid }) => (
-        <TouchableOpacity onPress={onPress} style={styles.item}>
+    const [disabled,setDisabled]=useState(false)
+
+    const Item = ({ item, onPress, handleEvent, deleteKid, disabled }) => (
+        <TouchableOpacity onPress={deleteMode ? null : onPress} style={styles.item}>
             <AvatarImages index={item.avatarIndex} />
             <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
             {deleteMode && (
                 <TouchableOpacity style={styles.deleteButton} onPress={() => handleEvent(item)}>
-                    <Text style={{ fontSize: 20, fontWeight: '900'}}>X</Text>
+                    <Text style={{ fontSize: 20, fontWeight: '900' }}>X</Text>
                 </TouchableOpacity>
-                
+
             )}
-            
+
         </TouchableOpacity>
     );
 
@@ -91,55 +94,72 @@ const ChildList = ({ navigation, deleteMode }) => {
 
     return (
         <View style={{ marginTop: 20, flex: 1 }}>
-            <FlatList
-                data={data}
-                renderItem={({ item }) => (
-                    <Item
-                        item={item}
-                        key={item.id}
-                        onPress={() => {
-                            setSelectedId(item.id);
-                            navigation.navigate('ChildData', { kidId: item.id });
-                        }}
-                        handleEvent={handleEvent}
-                        deleteKid={() => deleteKid(item)}
-                    />)}
-            />
-        </View>
-    );
+            {data.length === 0 ? (
+                <View>
+                    <TouchableOpacity
+                        style={styles.addbox}
+                        onPress={() => navigation.navigate('AddChild')}>
+                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
+                        <Text style={styles.heading}>Add child</Text>
+                    </TouchableOpacity>
+                </View>
+            ) : (
+                <FlatList
+                    data={data}
+                    renderItem={({ item }) => (
+                        <Item
+                            item={item}
+                            key={item.id}
+                            onPress={() => {
+                                setSelectedId(item.id);
+                                navigation.navigate('ChildData', { kidId: item.id });
+                            }}
+                            handleEvent={handleEvent}
+                            deleteKid={() => deleteKid(item)}
+                            disabled={deleteMode}
+                        />
+                    )}
+                />
+            )}
+        </View>)
 }
 
 const Home = ({ navigation }) => {
     const [deleteMode, setDeleteMode] = useState(false);
+    const [childCount, setChildCount] = useState(0);
+
     const toggleDeleteMode = () => {
         setDeleteMode((prevDeleteMode) => !prevDeleteMode);
     };
 
+    const handleChildCountChange = (count) => {
+        setChildCount(count);
+    };
+
     return (
         <View style={styles.container}>
-            <ChildList navigation={navigation} deleteMode={deleteMode} />
+            <ChildList navigation={navigation} deleteMode={deleteMode} onChildCountChange={handleChildCountChange} />
             <Separator />
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 15 }}>
-                <Button
-                    color='rgb(86, 136, 159)'
-                    title='   Add    '
-                    onPress={() => navigation.navigate('AddChild')}
-                />
-                <Button
-                    color='rgb(86, 136, 159)'
-                    onPress={toggleDeleteMode}
-                    title={deleteMode ? 'Done' : 'Delete'}
-                />
-            </View>
-            {/* <TouchableOpacity
-                style={styles.addbox}
-                onPress={() => navigation.navigate('AddChild')}>
-                <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
-                <Text style={styles.heading}>Add child</Text>
-            </TouchableOpacity> */}
+            {childCount > 0 && (
+                <>
+                    <Separator />
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 15 }}>
+                        <Button
+                            color='rgb(86, 136, 159)'
+                            title='   Add    '
+                            onPress={() => navigation.navigate('AddChild')}
+                        />
+                        <Button
+                            color='rgb(86, 136, 159)'
+                            onPress={toggleDeleteMode}
+                            title={deleteMode ? 'Done' : 'Delete'}
+                        />
+                    </View>
+                </>
+            )}
         </View>
     );
-}
+};
 
 const Separator = () => <View style={styles.separator} />;
 
@@ -179,14 +199,14 @@ const styles = StyleSheet.create({
 
     addbox: {
         width: 200,
-        height: 100,
+        height: 150,
         alignSelf: 'center',
         borderColor: 'rgb(123, 165, 185)',
         borderWidth: 2,
         borderRadius: 5,
         borderStyle: 'dashed',
-        backgroundColor: 'transparent',
-        margin: 10,
+        backgroundColor: '#fff',
+        marginTop: 50,
         paddingHorizontal: 20,
         paddingVertical: 10,
         alignItems: 'center',
@@ -196,7 +216,8 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#3c5e6e'
+        color: '#3c5e6e',
+        margin: 15,
     },
 
     avatar: {
@@ -210,3 +231,4 @@ const styles = StyleSheet.create({
     },
 
 });
+
