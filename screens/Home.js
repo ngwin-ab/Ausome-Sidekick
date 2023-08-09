@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView, SafeAreaView, Button, View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
+import { Button, View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 import AvatarImages from "../components/AvatarImages";
 
-const ChildList = ({ navigation }) => {
+const ChildList = ({ navigation, deleteMode }) => {
     const [data, setData] = useState([]);
     const isFocused = useIsFocused();
+    const [selectedId, setSelectedId] = useState();
 
     const getData = () => {
         const url = 'http://10.0.0.136:3000/kids';
@@ -16,30 +17,38 @@ const ChildList = ({ navigation }) => {
                 'Content-Type': 'application/json',
             }
         })
-        .then(response => response.json())
-        .then(result => {
-            setData(result);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+            .then(response => response.json())
+            .then(result => {
+                setData(result);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
     };
 
     useEffect(() => {
         isFocused && getData();
     }, [isFocused]);
 
-    const [selectedId, setSelectedId] = useState();
-
     const Item = ({ item, onPress }) => (
         <TouchableOpacity onPress={onPress} style={styles.item}>
             <AvatarImages index={item.avatarIndex} />
-            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e'}}>{item.name}</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
+            {deleteMode && (
+                <View style={styles.buttonsContainer}>
+                    <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteItem(item)}>
+                        <Text>Delete</Text>
+                    </TouchableOpacity>
+                </View>
+            )}
         </TouchableOpacity>
     );
-    
-    const renderItem = ({ item }) => {
 
+    const handleDeleteItem = (item) => {
+
+    };
+
+    const renderItem = ({ item }) => {
         return (
             <Item
                 item={item}
@@ -53,29 +62,45 @@ const ChildList = ({ navigation }) => {
     };
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={{marginTop: 20}}>
             <FlatList
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
                 extraData={selectedId}
             />
-        </SafeAreaView>
+        </View>
     );
 }
 
 const Home = ({ navigation }) => {
+    const [deleteMode, setDeleteMode] = useState(false);
+    const toggleDeleteMode = () => {
+        setDeleteMode((prevDeleteMode) => !prevDeleteMode);
+    };
 
     return (
         <View style={styles.container}>
-            <ChildList navigation={navigation} />
+            <ChildList navigation={navigation} deleteMode={deleteMode} />
             <Separator />
-            <TouchableOpacity
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 50 }}>
+                <Button
+                    color='rgb(86, 136, 159)'
+                    title='Add Kid'
+                    onPress={() => navigation.navigate('AddChild')}
+                />
+                <Button
+                    color='rgb(86, 136, 159)'
+                    onPress={toggleDeleteMode}
+                    title={deleteMode ? 'Done' : 'Delete'}
+                />
+            </View>
+            {/* <TouchableOpacity
                 style={styles.addbox}
                 onPress={() => navigation.navigate('AddChild')}>
                 <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
                 <Text style={styles.heading}>Add child</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     );
 }
@@ -91,7 +116,7 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        flex: 1, 
+        flex: 1,
         backgroundColor: 'rgb(196, 216, 228)',
         borderWidth: 1,
         borderColor: 'white',
@@ -102,8 +127,20 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         marginHorizontal: 15,
         alignSelf: 'center',
-        flexDirection: 'row',  
+        flexDirection: 'row',
         alignItems: 'center',
+    },
+
+    buttonsContainer: {
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+
+    deleteButton: {
+        backgroundColor: 'lightpink',
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
     },
 
     addbox: {
