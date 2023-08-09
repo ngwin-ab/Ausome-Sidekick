@@ -77,8 +77,8 @@ const App = () => {
               }}>
               <PracticeStack.Group>
                 <PracticeStack.Screen name="Practice1" component={Practice} options={{ title: "Practice" }} />
-                <PracticeStack.Screen name="Practice2" component={Practice2} options={{ title: "Practice" }} />
-                <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice" }} />
+                <PracticeStack.Screen name="Practice2" component={Practice2} options={{ title: "Practice (continued)" }} />
+                <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice (continued)" }} />
               </PracticeStack.Group>
             </PracticeStack.Navigator>)}
             </Tab.Screen>
