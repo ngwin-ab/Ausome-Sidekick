@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
+import { Button, View, SafeAreaView, Text, StyleSheet, TouchableOpacity, Image, FlatList, Alert } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 import AvatarImages from "../components/AvatarImages";
@@ -30,22 +30,50 @@ const ChildList = ({ navigation, deleteMode }) => {
         isFocused && getData();
     }, [isFocused]);
 
-    const Item = ({ item, onPress }) => (
+    const Item = ({ item, onPress, handleEvent, deleteKid }) => (
         <TouchableOpacity onPress={onPress} style={styles.item}>
             <AvatarImages index={item.avatarIndex} />
             <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
             {deleteMode && (
-                <View style={styles.buttonsContainer}>
-                    <TouchableOpacity style={styles.deleteButton} onPress={() => handleDeleteItem(item)}>
-                        <Text>Delete</Text>
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity style={styles.deleteButton} onPress={() => handleEvent(item)}>
+                    <Text style={{ fontSize: 20, fontWeight: '900'}}>X</Text>
+                </TouchableOpacity>
+                
             )}
+            
         </TouchableOpacity>
     );
 
-    const handleDeleteItem = (item) => {
+    const deleteKid = async (item) => {
+        try {
+            const url = `http://10.0.0.136:3000/kids/${item.id}`;
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                setData((prevData) => prevData.filter((kid) => kid.id !== item.id));
+            } else {
+                throw new Error('Failed to delete.');
+            }
+        } catch (error) {
+            console.error('Error deleting:', error);
+        }
+    };
 
+    const handleEvent = (item) => {
+        Alert.alert('Do you want to delete this data?', null, [
+            {
+                text: 'No',
+                style: 'cancel',
+            },
+            {
+                text: 'Yes',
+                onPress: () => deleteKid(item),
+            },
+        ]);
     };
 
     const renderItem = ({ item }) => {
@@ -62,12 +90,20 @@ const ChildList = ({ navigation, deleteMode }) => {
     };
 
     return (
-        <View style={{marginTop: 20}}>
+        <View style={{ marginTop: 20, flex: 1 }}>
             <FlatList
                 data={data}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-                extraData={selectedId}
+                renderItem={({ item }) => (
+                    <Item
+                        item={item}
+                        key={item.id}
+                        onPress={() => {
+                            setSelectedId(item.id);
+                            navigation.navigate('ChildData', { kidId: item.id });
+                        }}
+                        handleEvent={handleEvent}
+                        deleteKid={() => deleteKid(item)}
+                    />)}
             />
         </View>
     );
@@ -83,10 +119,10 @@ const Home = ({ navigation }) => {
         <View style={styles.container}>
             <ChildList navigation={navigation} deleteMode={deleteMode} />
             <Separator />
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 50 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 15 }}>
                 <Button
                     color='rgb(86, 136, 159)'
-                    title='Add Kid'
+                    title='   Add    '
                     onPress={() => navigation.navigate('AddChild')}
                 />
                 <Button
@@ -116,31 +152,29 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        flex: 1,
         backgroundColor: 'rgb(196, 216, 228)',
         borderWidth: 1,
         borderColor: 'white',
         borderRadius: 5,
-        padding: 20,
+        paddingHorizontal: 5,
         width: 300,
         height: 125,
         marginVertical: 8,
-        marginHorizontal: 15,
         alignSelf: 'center',
         flexDirection: 'row',
+        position: 'relative',
         alignItems: 'center',
     },
 
-    buttonsContainer: {
-        flexDirection: 'column',
-        alignItems: 'center'
-    },
-
     deleteButton: {
-        backgroundColor: 'lightpink',
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
+        position: 'absolute',
+        bottom: 85,
+        right: 5,
+        borderWidth: 2,
+        borderColor: '#233c67',
+        paddingVertical: 0,
+        paddingHorizontal: 8,
+        backgroundColor: '#fff',
     },
 
     addbox: {
