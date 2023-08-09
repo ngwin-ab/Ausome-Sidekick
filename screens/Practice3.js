@@ -9,25 +9,30 @@ const Practice3 = ({ navigation }) => {
     };
 
     return (
-        <ScrollView style={styles.container}>
-            <Text>Watch the video and answer the following question</Text>
-            <View style={{ marginTop: 20, marginBottom: -80 }}>
-                < YoutubePlayer
-                    height={300}
-                    play={false}
-                    videoId={'84Z26S6XIQU'}
-                    margin={0}
-                />
-            </View>
-            <QuizSection />
-            <View style={{ justifyContent: 'space-evenly', flexDirection: 'row', margin: 20 }}>
+        <View style={styles.container}>
+            <ScrollView>
+                <View style={{ marginBottom: -70 }}>
+                    <YoutubePlayer
+                        height={300}
+                        play={false}
+                        videoId={'84Z26S6XIQU'}
+                    />
+                </View>
+                <QuizSection />
+            </ScrollView>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
                 <Button
                     color='rgb(96, 147, 171)'
                     title='Show Answer'
                     onPress={showAlert}
                 />
+                <Button
+                    color='rgb(96, 147, 171)'
+                    title='Next Question'
+                    onPress={() => navigation.navigate('Practice2')}
+                />
             </View>
-        </ScrollView >
+        </View>
     );
 }
 
