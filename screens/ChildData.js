@@ -71,21 +71,22 @@ const ChildData = ({ route, navigation }) => {
 
     if (chartsRecorded.length === 0) {
         return (
-            <View style={styles.container}>
-                <Text style={{ marginTop: 20 }}>Let's record the first ABC chart for {name}!</Text>
-                <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginVertical: 20 }}>
-                    <Button style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}
-                        color='rgb(96, 147, 171)'
-                        title='Add chart'
-                        onPress={() => navigation.navigate('AddChart', { kidId })}
-                    />
+                <View>
+                    <Text style={styles.heading}>Let's add a chart for {name}!</Text>
+                    <TouchableOpacity
+                        style={styles.addbox}
+                        onPress={() => navigation.navigate('AddChart', { kidId })}>
+                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
+                        <Text style={styles.heading}>Add chart</Text>
+                    </TouchableOpacity>
                 </View>
-            </View>
+            
         );
     }
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text style={styles.heading}>{name}</Text>
             <FlatList
                 data={chartsRecorded}
                 renderItem={renderItem}
@@ -116,6 +117,29 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(235, 243, 250)',
     },
 
+    heading: {
+        fontWeight: 'bold',
+        fontSize: 25,
+        color: '#3c5e6e',
+        margin: 15,
+    },
+
+    addbox: {
+        width: 200,
+        height: 150,
+        alignSelf: 'center',
+        borderColor: 'rgb(123, 165, 185)',
+        borderWidth: 2,
+        borderRadius: 5,
+        borderStyle: 'dashed',
+        backgroundColor: '#fff',
+        marginTop: 50,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
     item: {
         backgroundColor: 'rgb(196, 216, 228)',
         borderWidth: 1,
@@ -135,16 +159,6 @@ const styles = StyleSheet.create({
     innerText: {
         marginBottom: 10,
         fontSize: 15
-    },
-
-    heading: {
-        borderWidth: 1,
-        borderColor: 'rgb(96, 147, 171)',
-        paddingHorizontal: 10,
-        fontWeight: 'bold',
-        fontSize: 25,
-        color: '#3c5e6e',
-        marginLeft: 15,
     },
 });
 
