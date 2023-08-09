@@ -26,11 +26,6 @@ const Practice3 = ({ navigation }) => {
                     title='Show Answer'
                     onPress={showAlert}
                 />
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='Next Question'
-                    onPress={() => navigation.navigate('Practice2')}
-                />
             </View>
         </View>
     );

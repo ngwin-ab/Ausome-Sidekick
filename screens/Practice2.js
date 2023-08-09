@@ -29,7 +29,7 @@ const Practice2 = ({ navigation }) => {
                 <Button
                     color='rgb(96, 147, 171)'
                     title='Next Question'
-                    onPress={() => navigation.navigate('Practice2')}
+                    onPress={() => navigation.navigate('Practice3')}
                 />
             </View>
         </View>
