@@ -12,17 +12,22 @@ import ChildData from './screens/ChildData';
 import AddChart from './screens/AddChart';
 import EditChart from './screens/EditChart';
 import Practice from './screens/Practice';
+import Practice2 from './screens/Practice2';
+import Practice3 from './screens/Practice3';
+import About from './screens/About';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
+const PracticeStack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <View style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
       <NavigationContainer>
-        <Tab.Navigator options={{ headerShown: false }}
+        <Tab.Navigator tabBaroptions={{ headerShown: false }}
           screenOptions={({ route }) => ({
+            tabBarLabelStyle: { fontSize: 11.5 },
             tabBarIcon: ({ focused, size, color }) => {
               let iconName;
 
@@ -34,8 +39,10 @@ const App = () => {
                 iconName = focused ? 'search' : 'search-outline';
               } else if (route.name === 'Practice') {
                 iconName = focused ? 'videocam' : 'videocam-outline';
+              } else if (route.name === 'About') {
+                iconName = focused ? 'document' : 'document-outline';
               }
-              return <Ionicons name={iconName} size={size} color={color} />;
+              return <Ionicons name={iconName} size={22} color={color} />;
             },
             tabBarActiveTintColor: 'rgb(86, 136, 159)',
             tabBarInactiveTintColor: 'gray',
@@ -60,13 +67,21 @@ const App = () => {
               </HomeStack.Group>
             </HomeStack.Navigator>)}
           </Tab.Screen>
-          <Tab.Screen name="Practice" component={Practice}
-            options={{
-              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              }
-            }} />
+          
+          <Tab.Screen name="Practice" options={{ headerShown: false }}>
+            {() => (<PracticeStack.Navigator
+              screenOptions={{
+                headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTitleStyle: {
+                  color: 'white', fontWeight: 'bold'
+                }
+              }}>
+              <PracticeStack.Group>
+                <PracticeStack.Screen name="Practice1" component={Practice} options={{ title: "Practice" }} />
+                <PracticeStack.Screen name="Practice2" component={Practice2} options={{ title: "Practice" }} />
+                <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice" }} />
+              </PracticeStack.Group>
+            </PracticeStack.Navigator>)}
+            </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
               headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
@@ -81,7 +96,15 @@ const App = () => {
                 fontWeight: 'bold',
               }
             }} />
+          <Tab.Screen name="About" component={About}
+            options={{
+              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              }
+            }} />
         </Tab.Navigator>
+
       </NavigationContainer>
     </View>
   );

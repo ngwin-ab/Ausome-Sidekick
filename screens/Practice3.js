@@ -3,7 +3,7 @@ import { View, Text, Button, FlatList, TextInput, StyleSheet, Alert } from 'reac
 import { ScrollView } from "react-native-gesture-handler";
 import YoutubePlayer from 'react-native-youtube-iframe';
 
-const Practice = ({ navigation }) => {
+const Practice3 = ({ navigation }) => {
     const showAlert = () => {
         Alert.alert('Test');
     };
@@ -15,7 +15,7 @@ const Practice = ({ navigation }) => {
                 < YoutubePlayer
                     height={300}
                     play={false}
-                    videoId={'isdL9u_tYIc'}
+                    videoId={'84Z26S6XIQU'}
                     margin={0}
                 />
             </View>
@@ -25,11 +25,6 @@ const Practice = ({ navigation }) => {
                     color='rgb(96, 147, 171)'
                     title='Show Answer'
                     onPress={showAlert}
-                />
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='Next Question'
-                    onPress={() => navigation.navigate('Practice2')}
                 />
             </View>
         </ScrollView >
@@ -60,7 +55,7 @@ const QuizSection = () => {
         </View>
     )
 }
-export default Practice;
+export default Practice3;
 
 const styles = StyleSheet.create({
     container: {
