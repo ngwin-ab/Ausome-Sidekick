@@ -121,7 +121,7 @@ const EditChart = ({ route, navigation }) => {
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
                 <Button
                     color='rgb(96, 147, 171)'
-                    title='Save Chart'
+                    title='   Save   '
                     onPress={() => {
                         saveData();
                         navigation.dispatch(StackActions.pop(1));
@@ -129,7 +129,7 @@ const EditChart = ({ route, navigation }) => {
                 />
                 <Button
                     color='rgb(96, 147, 171)'
-                    title='Delete Chart'
+                    title='Delete'
                     onPress={() => handleDeleteChart()}
                 />
             </View>

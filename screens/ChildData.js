@@ -95,7 +95,7 @@ const ChildData = ({ route, navigation }) => {
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
                 <Button
                     color='rgb(96, 147, 171)'
-                    title='Add Chart'
+                    title='    Add    '
                     onPress={() => navigation.navigate('AddChart',  { kidId })}
                 />
                 <Button
