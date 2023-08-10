@@ -52,32 +52,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(235, 243, 250)',
     },
 
-    item: {
-        backgroundColor: 'rgb(196, 216, 228)',
-        borderWidth: 1,
-        borderColor: 'white',
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        width: 300,
-        height: 125,
-        marginVertical: 8,
-        alignSelf: 'center',
-        flexDirection: 'row',
-        position: 'relative',
-        alignItems: 'center',
-    },
-
-    deleteButton: {
-        position: 'absolute',
-        bottom: 85,
-        right: 5,
-        borderWidth: 2,
-        borderColor: '#233c67',
-        paddingVertical: 0,
-        paddingHorizontal: 8,
-        backgroundColor: '#fff',
-    },
-
     addbox: {
         width: 200,
         height: 150,
@@ -99,12 +73,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: '#3c5e6e',
         margin: 15,
-    },
-
-    avatar: {
-        width: 90,
-        height: 90,
-        marginRight: 15
     },
 
     separator: {
