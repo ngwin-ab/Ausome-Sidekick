@@ -24,7 +24,7 @@ const Home = ({ navigation }) => {
             {childCount > 0 && (
                 <>
                     <Separator />
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 15 }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 20 }}>
                         <TouchableOpacity style={ styles.button } onPress={() => navigation.navigate('AddChild')}>
                             <Text style={{ color: '#fff', fontWeight: 'bold' }}>ADD</Text>
                         </TouchableOpacity>

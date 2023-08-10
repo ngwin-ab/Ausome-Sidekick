@@ -4,6 +4,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 import AvatarImages from "../components/AvatarImages";
 
+const Separator = () => <View style={styles.separator} />;
+
 const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
     const [data, setData] = useState([]);
     const isFocused = useIsFocused();
@@ -31,14 +33,17 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
         isFocused && getData();
     }, [isFocused]);
 
-    const [disabled,setDisabled]=useState(false)
+    const [disabled, setDisabled] = useState(false)
 
     const Item = ({ item, onPress, handleEvent, deleteKid, disabled }) => (
-        <TouchableOpacity onPress={deleteMode ? null : onPress} style={styles.item}>
+        <TouchableOpacity onPress={deleteMode ? null : onPress} style={styles.item} >
             <AvatarImages index={item.avatarIndex} />
+            <View style={{flex: 1}}>
             <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
+            <Text style={{ fontSize: 20, color: '#3c5e6e' }}>Age: {item.age}</Text>
+            </View>
             {deleteMode && (
-                <Ionicons style={styles.deleteButton} name="trash" size={24} color="#fff"  onPress={() => handleEvent(item)} />
+                <Ionicons style={styles.deleteButton} name="trash" size={24} color="#fff" onPress={() => handleEvent(item)} />
 
             )}
 
@@ -122,7 +127,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
         </View>)
 }
 
-export default ChildList; 
+export default ChildList;
 
 const styles = StyleSheet.create({
     container: {
@@ -182,6 +187,9 @@ const styles = StyleSheet.create({
         marginRight: 15
     },
 
+    separator: {
+        marginVertical: 10,
+    },
 });
 
 

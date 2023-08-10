@@ -6,6 +6,7 @@ import AvatarList from '../components/AvatarList';
 const AddChild = ({ navigation }) => {
     const [text, onChangeText] = useState('');
     const [name, setName] = useState('');
+    const [age, setAge] = useState('');
     const [selectedAvatarIndex, setSelectedAvatarIndex] = useState(null);
 
     const saveData = () => {
@@ -15,7 +16,7 @@ const AddChild = ({ navigation }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, avatarIndex: selectedAvatarIndex }),
+            body: JSON.stringify({ name, avatarIndex: selectedAvatarIndex, age: age }),
         })
             .then((response) => response.json())
             .then((data) => {
@@ -30,24 +31,21 @@ const AddChild = ({ navigation }) => {
     return (
         <>
             <View style={styles.container}>
-                <Text style={styles.heading}>Child's name:</Text>
+                <Text style={[styles.heading, styles.pageHeading]}>Child's name:</Text>
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => setName(text)}
                     value={name}
                 />
-                <Separator />
+                <Text style={styles.heading}>Age:</Text>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={(text) => setAge(text)}
+                    value={age}
+                />
                 <Text style={styles.heading}>Choose an avatar:</Text>
                 <AvatarList onSelectAvatar={(index) => setSelectedAvatarIndex(index)}></AvatarList>
-                <Separator />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
-                    {/* <Button
-                        title='Save'
-                        color='rgb(96, 147, 171)'
-                        onPress={() => {
-                            saveData();
-                        }}
-                    /> */}
                     <TouchableOpacity style={styles.button} onPress={() => {
                         saveData();
                     }}>
@@ -58,8 +56,6 @@ const AddChild = ({ navigation }) => {
         </>
     );
 }
-
-const Separator = () => <View style={styles.separator} />;
 
 const styles = StyleSheet.create({
     container: {
@@ -74,7 +70,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(96, 147, 171)',
         height: 50,
         width: 100,
-        // marginTop: 20,
+        margin: 20,
         borderRadius: 30,
         justifyContent: 'center',
     },
@@ -83,17 +79,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         color: '#3c5e6e',
-        margin: 10,
+        marginHorizontal: 20,
     },
 
-    separator: {
-        marginVertical: 10,
+    pageHeading: {
+        marginTop: 20
     },
 
     input: {
         width: 200,
         height: 40,
-        margin: 10,
+        margin: 20,
         borderWidth: 1,
         padding: 10,
         backgroundColor: 'white'
@@ -110,7 +106,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'wrap',
-        paddingHorizontal: 15,
+        marginTop: 20
+        // paddingHorizontal: 15,
     },
 });
 
