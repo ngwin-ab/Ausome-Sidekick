@@ -13,7 +13,7 @@ const avatars = [
 ];
 
 const AvatarImages = ({ index }) => {
-    return <Image source={avatars[index]} style={styles.avatar} resizeMode='contain'/>;
+    return <Image source={avatars[index]} style={styles.avatar} resizeMode='contain' />;
 };
 
 export default AvatarImages;
