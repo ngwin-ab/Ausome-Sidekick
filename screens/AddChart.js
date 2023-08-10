@@ -63,7 +63,7 @@ const AddChart = ({ route, navigation }) => {
             <Text>Loading...</Text>
         </View>
     ) : (
-                <NewChartForm data={data} saveData={saveData} navigation={navigation} showSaveButton={true}/>
+                <NewChartForm data={data} saveData={saveData} navigation={navigation} />
         )
     )
 };
