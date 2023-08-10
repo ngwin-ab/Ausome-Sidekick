@@ -2,10 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { StackActions } from '@react-navigation/native';
-import NewChartForm from '../components/NewChartForm';
+import CalendarBox from '../components/base_components/CalendarBox';
+
+const Separator = () => <View style={styles.separator} />;
+
+const InputBox = ({ label, value, onChangeText }) => {
+    return (
+        <View>
+            <TextInput
+                style={{ height: 78, marginHorizontal: 15, marginVertical: 5 }}
+                mode="outlined"
+                multiline
+                label={label}
+                value={value}
+                onChangeText={onChangeText}
+            />
+        </View>
+    );
+};
 
 const EditChart = ({ route, navigation }) => {
-    const { chart, kidName } = route.params;
+    const { chart } = route.params;
+    const { kidName } = route.params;
     const [data, setData] = useState([]);
 
     const [formValues, setFormValues] = useState({
@@ -78,13 +96,26 @@ const EditChart = ({ route, navigation }) => {
 
         <View style={styles.container}>
             <Text style={styles.heading}>{kidName}</Text>
-            <NewChartForm
-                data={chart}
-                saveData={saveData}
-                navigation={navigation}
-                heading={kidName}
-                onDelete={handleDeleteChart}
-                showSaveButton={false}
+            <Separator />
+            <InputBox
+                label="Setting"
+                onChangeText={(text) => setFormValues({ ...formValues, setting: text })}
+                value={formValues.setting}
+            />
+            <InputBox
+                label="Antecedent"
+                onChangeText={(text) => setFormValues({ ...formValues, antecedent: text })}
+                value={formValues.antecedent}
+            />
+            <InputBox
+                label="Behavior"
+                onChangeText={(text) => setFormValues({ ...formValues, behavior: text })}
+                value={formValues.behavior}
+            />
+            <InputBox
+                label="Consequence"
+                onChangeText={(text) => setFormValues({ ...formValues, consequence: text })}
+                value={formValues.consequence}
             />
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
