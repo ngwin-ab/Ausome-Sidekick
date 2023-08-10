@@ -45,17 +45,17 @@ const App = () => {
               return <Ionicons name={iconName} size={22} color={color} />;
             }, tabBarStyle: {
               backgroundColor: 'rgb(235, 243, 250)',
-              borderTopColor: 'grey'
+              borderTopColor: '#d9d9d9'
             },
-            tabBarActiveTintColor: '#3c5e6e',
-            tabBarInactiveTintColor: 'gray',
+            tabBarActiveTintColor: 'black',
+            tabBarInactiveTintColor: 'grey',
           })}
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
                 headerStyle: { backgroundColor: '#C4D8B7' }, headerTitleStyle: {
-                  color: '#3c5e6e', fontWeight: 'bold'
+                  color: 'black', fontWeight: 'bold'
                 }
               }}>
               <HomeStack.Group>
@@ -75,7 +75,7 @@ const App = () => {
             {() => (<PracticeStack.Navigator
               screenOptions={{
                 headerStyle: { backgroundColor: '#C4D8B7' }, headerTitleStyle: {
-                  color: '#3c5e6e', fontWeight: 'bold'
+                  color: 'black', fontWeight: 'bold'
                 }
               }}>
               <PracticeStack.Group>
@@ -88,21 +88,21 @@ const App = () => {
           <Tab.Screen name="Resources" component={Resources}
             options={{
               headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: '#3c5e6e',
+              headerTitleStyle: { color: 'black',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
               headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: '#3c5e6e',
+              headerTitleStyle: { color: 'black',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
               headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: '#3c5e6e',
+              headerTitleStyle: { color: 'black',
                 fontWeight: 'bold',
               }
             }} />

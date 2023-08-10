@@ -104,14 +104,12 @@ const AddChart = ({ route, navigation }) => {
                     value={formValues.consequence}
                 />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginTop: 20 }}>
-                    <Button
-                        title="Save"
-                        color="rgb(96, 147, 171)"
-                        onPress={() => {
+                    <TouchableOpacity style={styles.button} onPress={() => {
                             saveData();
                             navigation.dispatch(StackActions.pop(1));
-                        }}
-                    />
+                        }}>
+                        <Text style={{ color: '#fff', fontWeight: 'bold' }}>SAVE</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </ScrollView>)
@@ -123,9 +121,19 @@ export default AddChart;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f2f2f2',
+        backgroundColor: 'rgb(235, 243, 250)',
         // alignItems: 'stretch',
         // justifyContent: 'center',
+    },
+
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        // marginTop: 20,
+        borderRadius: 30,
+        justifyContent: 'center',
     },
 
     separator: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Image, Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Alert } from 'react-native';
 import { StackActions } from '@react-navigation/native';
 import AvatarList from '../components/AvatarList';
 
@@ -41,13 +41,18 @@ const AddChild = ({ navigation }) => {
                 <AvatarList onSelectAvatar={(index) => setSelectedAvatarIndex(index)}></AvatarList>
                 <Separator />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
-                    <Button
+                    {/* <Button
                         title='Save'
                         color='rgb(96, 147, 171)'
                         onPress={() => {
                             saveData();
                         }}
-                    />
+                    /> */}
+                    <TouchableOpacity style={styles.button} onPress={() => {
+                        saveData();
+                    }}>
+                        <Text style={{ color: '#fff', fontWeight: 'bold' }}>SAVE</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </>
@@ -59,9 +64,19 @@ const Separator = () => <View style={styles.separator} />;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f2f2f2',
+        backgroundColor: 'rgb(235, 243, 250)',
         // alignItems: 'center',
         // justifyContent: 'center',
+    },
+
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        // marginTop: 20,
+        borderRadius: 30,
+        justifyContent: 'center',
     },
 
     heading: {

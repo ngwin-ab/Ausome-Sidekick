@@ -71,12 +71,12 @@ const ChildData = ({ route, navigation }) => {
 
     if (chartsRecorded.length === 0) {
         return (
-                <View>
+                <View style={styles.container}>
                     <Text style={styles.heading}>Let's add a chart for {name}!</Text>
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChart', { kidId })}>
-                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
+                        <Ionicons name='add-circle' size={50} color='black' />
                         <Text style={styles.heading}>Add chart</Text>
                     </TouchableOpacity>
                 </View>
@@ -93,17 +93,14 @@ const ChildData = ({ route, navigation }) => {
                 keyExtractor={item => item._id}
                 extraData={selectedId}
             />
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='    Add    '
-                    onPress={() => navigation.navigate('AddChart',  { kidId })}
-                />
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='Export'
-                    onPress={() => navigation.navigate('AddChart',  { kidId })}
-                />
+
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddChart',  { kidId })}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>ADD</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => {}}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>EXPORT</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
@@ -120,8 +117,18 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#3c5e6e',
+        color: 'black',
         margin: 15,
+    },
+
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        marginTop: 20,
+        borderRadius: 30,
+        justifyContent: 'center',
     },
 
     addbox: {

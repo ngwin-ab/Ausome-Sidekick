@@ -97,7 +97,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
-                        <Ionicons name='add-circle' size={50} color='#3c5e6e' />
+                        <Ionicons name='add-circle' size={50} color='black' />
                         <Text style={styles.heading}>Add child</Text>
                     </TouchableOpacity>
                 </View>
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: '#fff',
+        backgroundColor: 'rgb(196, 216, 228)',
         borderWidth: 1,
         borderColor: '#bdc4c7',
         borderRadius: 5,
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#3c5e6e',
+        color: 'black',
         margin: 15,
     },
 

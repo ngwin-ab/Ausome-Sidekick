@@ -53,10 +53,10 @@ const Resources = ({ navigation }) => {
                 />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
                 <TouchableOpacity style={styles.button} onPress={() => {}}>
-                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>EXPLAIN</Text>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>SEARCH</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => {}}>
-                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>NEXT</Text>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>RESET</Text>
                 </TouchableOpacity>
             </View>
             </View>

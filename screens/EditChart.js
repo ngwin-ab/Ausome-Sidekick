@@ -118,22 +118,17 @@ const EditChart = ({ route, navigation }) => {
                 value={formValues.consequence}
             />
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='   Save   '
-                    onPress={() => {
-                        saveData();
-                        navigation.dispatch(StackActions.pop(1));
-                    }}
-                />
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='Delete'
-                    onPress={() => handleDeleteChart()}
-                />
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
+                <TouchableOpacity style={styles.button} onPress={() => {
+                    saveData();
+                    navigation.dispatch(StackActions.pop(1));
+                }}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>SAVE</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => handleDeleteChart()}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>DELETE</Text>
+                </TouchableOpacity>
             </View>
-
         </View>
 
     );
@@ -144,9 +139,19 @@ export default EditChart;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f2f2f2',
+        backgroundColor: 'rgb(235, 243, 250)',
         // alignItems: 'stretch',
         // justifyContent: 'center',
+    },
+
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        marginTop: 20,
+        borderRadius: 30,
+        justifyContent: 'center',
     },
 
     separator: {
