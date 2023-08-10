@@ -19,7 +19,7 @@ const InputBox = ({ label, value, onChangeText }) => {
     );
 };
 
-const NewChartForm = ({ data, saveData, navigation }) => {
+const NewChartForm = ({ data, saveData, navigation, showSaveButton }) => {
     const [formValues, setFormValues] = useState({
         setting: '',
         antecedent: '',
@@ -52,14 +52,16 @@ const NewChartForm = ({ data, saveData, navigation }) => {
                     value={formValues.consequence}
                 />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginTop: 20 }}>
-                    <Button
-                        title="Save"
-                        color="rgb(96, 147, 171)"
-                        onPress={() => {
-                            saveData(formValues);
-                            navigation.dispatch(StackActions.pop(1));
-                        }}
-                    />
+                    {showSaveButton && (
+                        <Button
+                            title="Save"
+                            color="rgb(96, 147, 171)"
+                            onPress={() => {
+                                saveData(formValues);
+                                navigation.dispatch(StackActions.pop(1));
+                            }}
+                        />
+                    )}
                 </View>
             </View>
         </ScrollView>
