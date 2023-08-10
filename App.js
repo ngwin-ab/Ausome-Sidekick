@@ -45,7 +45,7 @@ const App = () => {
               return <Ionicons name={iconName} size={22} color={color} />;
             }, tabBarStyle: {
               backgroundColor: 'rgb(235, 243, 250)',
-              borderTopColor: '#d9d9d9'
+              borderTopColor: '#bfbfbf'
             },
             tabBarActiveTintColor: 'black',
             tabBarInactiveTintColor: 'grey',
@@ -54,7 +54,7 @@ const App = () => {
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#C4D8B7' }, headerTitleStyle: {
+                headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTitleStyle: {
                   color: 'black', fontWeight: 'bold'
                 }
               }}>
@@ -74,7 +74,7 @@ const App = () => {
           <Tab.Screen name="Practice" options={{ headerShown: false }}>
             {() => (<PracticeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#C4D8B7' }, headerTitleStyle: {
+                headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTitleStyle: {
                   color: 'black', fontWeight: 'bold'
                 }
               }}>
@@ -87,21 +87,21 @@ const App = () => {
             </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
-              headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTintColor: '#fff',
               headerTitleStyle: { color: 'black',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
-              headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTintColor: '#fff',
               headerTitleStyle: { color: 'black',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
-              headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTintColor: '#fff',
               headerTitleStyle: { color: 'black',
                 fontWeight: 'bold',
               }
