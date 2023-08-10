@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import {
     FlatList,
+    SectionList,
     View,
     SafeAreaView,
+    StatusBar,
     StyleSheet,
     Text,
+    TouchableOpacity,
     Button
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
-import ChartList from '../components/ChartList';
 
 const ChildData = ({ route, navigation }) => {
     const { kidId } = route.params;
+    const [selectedId, setSelectedId] = useState('');
     const [name, setName] = useState('');
     const [chartsRecorded, setChartsRecorded] = useState([]);
+    const [chartId, setChartId] = useState('');
+
     const isFocused = useIsFocused();
 
     const getData = async () => {
@@ -27,6 +32,7 @@ const ChildData = ({ route, navigation }) => {
             });
             const data = await response.json();
             setChartsRecorded(data.chartsRecorded);
+            setChartId(data.chartsRecorded._id)
             setName(data.name);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -37,31 +43,68 @@ const ChildData = ({ route, navigation }) => {
         isFocused && getData();
     }, [isFocused]);
 
+    const Item = ({ item, onPress }) => (
+        <TouchableOpacity onPress={onPress} style={[styles.item]}>
+            <Text style={[styles.title]}>SETTING</Text>
+            <Text style={[styles.innerText]}>{item.setting}</Text>
+            <Text style={[styles.title]}>ANTECEDENT</Text>
+            <Text style={[styles.innerText]}>{item.antecedent}</Text>
+            <Text style={[styles.title]}>BEHAVIOR</Text>
+            <Text style={[styles.innerText]}>{item.behavior}</Text>
+            <Text style={[styles.title]}>CONSEQUENCE</Text>
+            <Text style={[styles.innerText]}>{item.consequence}</Text>
+        </TouchableOpacity>
+    );
+
+    const renderItem = ({ item }) => {
+        return (
+            <Item
+                item={item}
+                key={item.id}
+                onPress={() => {
+                    setSelectedId(item.id);
+                    navigation.navigate('EditChart', { chart: item, kidName: name });
+                }}
+            />
+        );
+    };
+
+    if (chartsRecorded.length === 0) {
+        return (
+                <View>
+                    <Text style={styles.heading}>Let's add a chart for {name}!</Text>
+                    <TouchableOpacity
+                        style={styles.addbox}
+                        onPress={() => navigation.navigate('AddChart', { kidId })}>
+                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
+                        <Text style={styles.heading}>Add chart</Text>
+                    </TouchableOpacity>
+                </View>
+            
+        );
+    }
+
     return (
         <SafeAreaView style={styles.container}>
-            {chartsRecorded.length > 0 && (
-                <Text style={styles.heading}>{name}</Text>
-            )}
-            <ChartList
-                navigation={navigation}
-                chartsRecorded={chartsRecorded}
-                name={name}
-                kidId={kidId}
+            <Text style={styles.heading}>{name}</Text>
+            <FlatList
+                data={chartsRecorded}
+                renderItem={renderItem}
+                keyExtractor={item => item._id}
+                extraData={selectedId}
             />
-            {chartsRecorded.length > 0 && (
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
-                    <Button
-                        color='rgb(96, 147, 171)'
-                        title='Add'
-                        onPress={() => navigation.navigate('AddChart', { kidId })}
-                    />
-                    <Button
-                        color='rgb(96, 147, 171)'
-                        title='Export'
-                        onPress={() => navigation.navigate('AddChart', { kidId })}
-                    />
-                </View>
-            )}
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
+                <Button
+                    color='rgb(96, 147, 171)'
+                    title='    Add    '
+                    onPress={() => navigation.navigate('AddChart',  { kidId })}
+                />
+                <Button
+                    color='rgb(96, 147, 171)'
+                    title='Export'
+                    onPress={() => navigation.navigate('AddChart',  { kidId })}
+                />
+            </View>
         </SafeAreaView>
     );
 };
