@@ -43,16 +43,19 @@ const App = () => {
                 iconName = focused ? 'document' : 'document-outline';
               }
               return <Ionicons name={iconName} size={22} color={color} />;
+            }, tabBarStyle: {
+              backgroundColor: 'rgb(235, 243, 250)',
+              borderTopColor: 'grey'
             },
-            tabBarActiveTintColor: 'rgb(86, 136, 159)',
+            tabBarActiveTintColor: '#3c5e6e',
             tabBarInactiveTintColor: 'gray',
           })}
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTitleStyle: {
-                  color: 'white', fontWeight: 'bold'
+                headerStyle: { backgroundColor: '#C4D8B7' }, headerTitleStyle: {
+                  color: '#3c5e6e', fontWeight: 'bold'
                 }
               }}>
               <HomeStack.Group>
@@ -71,35 +74,35 @@ const App = () => {
           <Tab.Screen name="Practice" options={{ headerShown: false }}>
             {() => (<PracticeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTitleStyle: {
-                  color: 'white', fontWeight: 'bold'
+                headerStyle: { backgroundColor: '#C4D8B7' }, headerTitleStyle: {
+                  color: '#3c5e6e', fontWeight: 'bold'
                 }
               }}>
               <PracticeStack.Group>
-                <PracticeStack.Screen name="Practice1" component={Practice} options={{ title: "Practice" }} />
-                <PracticeStack.Screen name="Practice2" component={Practice2} options={{ title: "Practice (continued)" }} />
-                <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice (continued)" }} />
+                <PracticeStack.Screen name="Practice1" component={Practice} options={{ title: "Practice 1" }} />
+                <PracticeStack.Screen name="Practice2" component={Practice2} options={{ title: "Practice 2" }} />
+                <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice 3" }} />
               </PracticeStack.Group>
             </PracticeStack.Navigator>)}
             </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
-              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
-              headerTitleStyle: {
+              headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: '#3c5e6e',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
-              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
-              headerTitleStyle: {
+              headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: '#3c5e6e',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
-              headerStyle: { backgroundColor: 'rgb(96, 147, 171)' }, headerTintColor: '#fff',
-              headerTitleStyle: {
+              headerStyle: { backgroundColor: '#C4D8B7' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: '#3c5e6e',
                 fontWeight: 'bold',
               }
             }} />

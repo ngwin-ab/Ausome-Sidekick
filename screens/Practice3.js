@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button, FlatList, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, TextInput, StyleSheet, Alert } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import YoutubePlayer from 'react-native-youtube-iframe';
 
@@ -21,11 +21,9 @@ const Practice3 = ({ navigation }) => {
                 <QuizSection />
             </ScrollView>
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='Show Answer'
-                    onPress={showAlert}
-                />
+            <TouchableOpacity style={styles.button} onPress={showAlert}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>EXPLAIN</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -61,6 +59,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgb(235, 243, 250)',
+    },
+
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        borderRadius: 30,
+        justifyContent: 'center',
     },
 
     quizSection: {

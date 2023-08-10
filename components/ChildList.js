@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, View, SafeAreaView, Text, StyleSheet, TouchableOpacity, Image, FlatList, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Alert } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 import AvatarImages from "../components/AvatarImages";
@@ -38,9 +38,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
             <AvatarImages index={item.avatarIndex} />
             <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
             {deleteMode && (
-                <TouchableOpacity style={styles.deleteButton} onPress={() => handleEvent(item)}>
-                    <Text style={{ fontSize: 20, fontWeight: '900' }}>X</Text>
-                </TouchableOpacity>
+                <Ionicons style={styles.deleteButton} name="trash" size={24} color="#fff"  onPress={() => handleEvent(item)} />
 
             )}
 
@@ -99,7 +97,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
-                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
+                        <Ionicons name='add-circle' size={50} color='#3c5e6e' />
                         <Text style={styles.heading}>Add child</Text>
                     </TouchableOpacity>
                 </View>
@@ -129,13 +127,13 @@ export default ChildList;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(235, 243, 250)',
+        backgroundColor: '#f2f2f2',
     },
 
     item: {
-        backgroundColor: 'rgb(196, 216, 228)',
+        backgroundColor: '#fff',
         borderWidth: 1,
-        borderColor: 'white',
+        borderColor: '#bdc4c7',
         borderRadius: 5,
         paddingHorizontal: 10,
         width: 300,
@@ -149,17 +147,16 @@ const styles = StyleSheet.create({
 
     deleteButton: {
         position: 'absolute',
-        bottom: 85,
-        right: 5,
-        borderWidth: 2,
-        borderColor: '#233c67',
-        paddingVertical: 0,
+        bottom: 42,
+        right: 15,
+        paddingVertical: 8,
         paddingHorizontal: 8,
-        backgroundColor: '#fff',
+        backgroundColor: '#cc0425',
+        borderRadius: 20
     },
 
     addbox: {
-        width: 200,
+        width: 220,
         height: 150,
         alignSelf: 'center',
         borderColor: 'rgb(123, 165, 185)',
@@ -168,8 +165,6 @@ const styles = StyleSheet.create({
         borderStyle: 'dashed',
         backgroundColor: '#fff',
         marginTop: 50,
-        paddingHorizontal: 20,
-        paddingVertical: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button, FlatList, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, FlatList, TextInput, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import YoutubePlayer from 'react-native-youtube-iframe';
 
@@ -20,17 +20,13 @@ const Practice = ({ navigation }) => {
                 </View>
                 <QuizSection />
             </ScrollView>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='Show Answer'
-                    onPress={showAlert}
-                />
-                <Button
-                    color='rgb(96, 147, 171)'
-                    title='Next Question'
-                    onPress={() => navigation.navigate('Practice2')}
-                />
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
+                <TouchableOpacity style={styles.button} onPress={showAlert}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>EXPLAIN</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Practice2')}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>NEXT</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -72,8 +68,17 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
     },
 
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        // marginTop: 20,
+        borderRadius: 30,
+        justifyContent: 'center',
+    },
+
     input: {
-        // height: 40,
         margin: 12,
         borderWidth: 1,
         padding: 10,

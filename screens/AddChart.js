@@ -123,7 +123,7 @@ export default AddChart;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(235, 243, 250)',
+        backgroundColor: '#f2f2f2',
         // alignItems: 'stretch',
         // justifyContent: 'center',
     },

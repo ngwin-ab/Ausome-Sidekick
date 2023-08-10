@@ -25,16 +25,12 @@ const Home = ({ navigation }) => {
                 <>
                     <Separator />
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 15 }}>
-                        <Button
-                            color='rgb(86, 136, 159)'
-                            title='   Add    '
-                            onPress={() => navigation.navigate('AddChild')}
-                        />
-                        <Button
-                            color='rgb(86, 136, 159)'
-                            onPress={toggleDeleteMode}
-                            title={deleteMode ? 'Done' : 'Delete'}
-                        />
+                        <TouchableOpacity style={ styles.button } onPress={() => navigation.navigate('AddChild')}>
+                            <Text style={{ color: '#fff', fontWeight: 'bold' }}>ADD</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={ styles.button } onPress={toggleDeleteMode}>
+                            <Text style={{ color: '#fff', fontWeight: 'bold' }}>{deleteMode ? 'DONE' : 'DELETE'}</Text>
+                        </TouchableOpacity>
                     </View>
                 </>
             )}
@@ -50,6 +46,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgb(235, 243, 250)',
+    },
+
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        marginTop: 20,
+        borderRadius: 30,
+        justifyContent: 'center',
     },
 
     addbox: {
