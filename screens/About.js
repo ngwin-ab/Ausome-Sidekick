@@ -6,11 +6,11 @@ const About = ({ navigation }) => {
         <View style={styles.container}>
             <Text style={styles.text}>The Ausome Sidekick app was created as a tool for parents and teachers
                 to record ABC charts and, in turn, better understand the function of children's behaviors. </Text>
-            <Text style={styles.heading}>Attributions</Text>
+            <Text style={styles.heading}>Attribution</Text>
             <Text style={styles.text}>App Logo:</Text>
-            <Text style={styles.text}>Designed by catalyststuff / Freepik"</Text>
+            <Text style={styles.text}>Designed by catalyststuff / Freepik.com</Text>
             <Text style={styles.text}>Avatar icons:</Text>
-            <Text style={styles.text}>Designed by 千图网 / Pngtree"</Text>
+            <Text style={styles.text}>Designed by 千图网 / Pngtree.com</Text>
         </View>
     );
 }
