@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Alert } from 'react-native';
+import { Button } from '@rneui/base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 import AvatarImages from "../components/AvatarImages";
-
+import AddBtn from "./base_components/AddButton";
 const Separator = () => <View style={styles.separator} />;
 
 const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
@@ -38,9 +39,9 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
     const Item = ({ item, onPress, handleEvent, deleteKid, disabled }) => (
         <TouchableOpacity onPress={deleteMode ? null : onPress} style={styles.item} >
             <AvatarImages index={item.avatarIndex} />
-            <View style={{flex: 1}}>
-            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
-            <Text style={{ fontSize: 20, color: '#3c5e6e' }}>Age: {item.age}</Text>
+            <View style={{ flex: 1 }}>
+                <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
+                <Text style={{ fontSize: 20, color: '#3c5e6e' }}>Age: {item.age}</Text>
             </View>
             {deleteMode && (
                 <Ionicons style={styles.deleteButton} name="trash" size={24} color="#fff" onPress={() => handleEvent(item)} />
@@ -98,11 +99,14 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
     return (
         <View style={{ marginTop: 20, flex: 1 }}>
             {data.length === 0 ? (
+                // <View style={styles.addbox} >
+                //     <AddBtn buttonText='ADD KID' onPress={() => navigation.navigate('AddChild')}></AddBtn>
+                // </View>
                 <View>
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
-                        <Ionicons name='add-circle' size={50} color='black' />
+                        <Ionicons name='add-circle' size={100} color='black' />
                         <Text style={styles.heading}>Add child</Text>
                     </TouchableOpacity>
                 </View>
@@ -161,14 +165,6 @@ const styles = StyleSheet.create({
     },
 
     addbox: {
-        width: 220,
-        height: 150,
-        alignSelf: 'center',
-        borderColor: 'rgb(123, 165, 185)',
-        borderWidth: 2,
-        borderRadius: 5,
-        borderStyle: 'dashed',
-        backgroundColor: '#fff',
         marginTop: 50,
         alignItems: 'center',
         justifyContent: 'center',
@@ -189,6 +185,16 @@ const styles = StyleSheet.create({
 
     separator: {
         marginVertical: 10,
+    },
+
+    fab: {
+        width: 100,
+        height: 100,
+        borderRadius: 100,
+        backgroundColor: '#ee6e73',
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
     },
 });
 
