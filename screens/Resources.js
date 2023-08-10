@@ -51,7 +51,7 @@ const Resources = ({ navigation }) => {
                     round={true}
                     containerStyle={{ backgroundColor: 'rgb(235, 243, 250)' }}
                 />
-                <View style={{ justifyContent: 'space-evenly', flexDirection: 'row', marginTop: 10}}>
+                <View style={{ justifyContent: 'space-evenly', flexDirection: 'row', marginTop: 10 }}>
                     <Button
                         color='rgb(96, 147, 171)'
                         title='Search'
