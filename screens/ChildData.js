@@ -72,11 +72,11 @@ const ChildData = ({ route, navigation }) => {
     if (chartsRecorded.length === 0) {
         return (
                 <View style={styles.container}>
-                    <Text style={styles.heading}>Let's add a chart for {name}!</Text>
+                    <Text style={styles.heading}>Let's add {name}'s first chart!</Text>
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChart', { kidId })}>
-                        <Ionicons name='add-circle' size={50} color='black' />
+                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
                         <Text style={styles.heading}>Add chart</Text>
                     </TouchableOpacity>
                 </View>

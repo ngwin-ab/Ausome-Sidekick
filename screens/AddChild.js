@@ -6,7 +6,7 @@ import AvatarList from '../components/AvatarList';
 const AddChild = ({ navigation }) => {
     const [text, onChangeText] = useState('');
     const [name, setName] = useState('');
-    const [age, setAge] = useState('');
+    const [like, setLike] = useState('');
     const [selectedAvatarIndex, setSelectedAvatarIndex] = useState(null);
 
     const saveData = () => {
@@ -16,7 +16,7 @@ const AddChild = ({ navigation }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, avatarIndex: selectedAvatarIndex, age: age }),
+            body: JSON.stringify({ name, avatarIndex: selectedAvatarIndex, like: like }),
         })
             .then((response) => response.json())
             .then((data) => {
@@ -37,11 +37,11 @@ const AddChild = ({ navigation }) => {
                     onChangeText={(text) => setName(text)}
                     value={name}
                 />
-                <Text style={styles.heading}>Age:</Text>
+                <Text style={styles.heading}>Like:</Text>
                 <TextInput
                     style={styles.input}
-                    onChangeText={(text) => setAge(text)}
-                    value={age}
+                    onChangeText={(text) => setLike(text)}
+                    value={like}
                 />
                 <Text style={styles.heading}>Choose an avatar:</Text>
                 <AvatarList onSelectAvatar={(index) => setSelectedAvatarIndex(index)}></AvatarList>

@@ -41,7 +41,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
             <AvatarImages index={item.avatarIndex} />
             <View style={{ flex: 1 }}>
                 <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
-                <Text style={{ fontSize: 20, color: '#3c5e6e' }}>Age: {item.age}</Text>
+                <Text style={{ fontSize: 20, color: '#3c5e6e' }}>Like: {item.like}</Text>
             </View>
             {deleteMode && (
                 <Ionicons style={styles.deleteButton} name="trash" size={24} color="#fff" onPress={() => handleEvent(item)} />
@@ -103,10 +103,16 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
                 //     <AddBtn buttonText='ADD KID' onPress={() => navigation.navigate('AddChild')}></AddBtn>
                 // </View>
                 <View>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
                         <Ionicons name='add-circle' size={100} color='black' />
+                        <Text style={styles.heading}>Add child</Text>
+                    </TouchableOpacity> */}
+                    <TouchableOpacity
+                        style={styles.addbox}
+                        onPress={() => navigation.navigate('AddChild')}>
+                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
                         <Text style={styles.heading}>Add child</Text>
                     </TouchableOpacity>
                 </View>
@@ -145,8 +151,8 @@ const styles = StyleSheet.create({
         borderColor: '#bdc4c7',
         borderRadius: 5,
         paddingHorizontal: 10,
-        width: 300,
-        height: 125,
+        width: 400,
+        height: 110,
         marginVertical: 8,
         alignSelf: 'center',
         flexDirection: 'row',
@@ -156,8 +162,8 @@ const styles = StyleSheet.create({
 
     deleteButton: {
         position: 'absolute',
-        bottom: 42,
-        right: 15,
+        bottom: 55,
+        right: 10,
         paddingVertical: 8,
         paddingHorizontal: 8,
         backgroundColor: '#cc0425',
@@ -165,7 +171,17 @@ const styles = StyleSheet.create({
     },
 
     addbox: {
+        width: 200,
+        height: 150,
+        alignSelf: 'center',
+        borderColor: 'rgb(123, 165, 185)',
+        borderWidth: 2,
+        borderRadius: 5,
+        borderStyle: 'dashed',
+        backgroundColor: '#fff',
         marginTop: 50,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
