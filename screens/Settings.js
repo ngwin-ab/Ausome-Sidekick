@@ -1,19 +1,63 @@
 import React from "react";
-import { ScrollView, View, Text, Button, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Settings = ({ navigation }) => {
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.heading}>Account</Text>
-            <Text style={styles.heading}>Reminders</Text>
-            <Text style={styles.heading}>Invite family</Text>
-            <Text style={styles.heading}>Language</Text>
-            <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
-                    <Button
-                        title='Log Out'
-                        color='rgb(96, 147, 171)'
-                        onPress={() => {}}
-                    />
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="person" size={30} color="#c2c3c4" />
+                </TouchableOpacity>
+                <View style={{ flex: 1, marginLeft: 15 }}>
+                    <Text style={{ fontSize: 18, color: 'grey' }}>Account information</Text>
+                </View>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="arrow-forward" size={30} color="grey" />
+                </TouchableOpacity>
+            </View>
+
+            <Text style={styles.heading}>Extra Feature</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="alarm" size={30} color="#c2c3c4" />
+                </TouchableOpacity>
+                <View style={{ flex: 1, marginLeft: 15 }}>
+                    <Text style={{ fontSize: 18, color: 'grey' }}>Set reminders</Text>
+                </View>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="arrow-forward" size={30} color="grey" />
+                </TouchableOpacity>
+            </View>
+            <Text style={styles.heading}>Invite</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="people-sharp" size={30} color="#c2c3c4" />
+                </TouchableOpacity>
+                <View style={{ flex: 1, marginLeft: 15 }}>
+                    <Text style={{ fontSize: 19, color: 'grey' }}>Family member</Text>
+                </View>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="arrow-forward" size={30} color="grey" />
+                </TouchableOpacity>
+            </View>
+            {/* <Text style={styles.heading}>Language</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="language-sharp" size={30} color="#c2c3c4" />
+                </TouchableOpacity>
+                <View style={{ flex: 1, marginLeft: 15 }}>
+                    <Text style={{ fontSize: 19, color: 'grey' }}>Eng/Viet</Text>
+                </View>
+                <TouchableOpacity style={styles.personIcon}>
+                    <Ionicons name="arrow-forward" size={30} color="grey" />
+                </TouchableOpacity>
+            </View> */}
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
+            <TouchableOpacity style={styles.button}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>LOG OUT</Text>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     );
@@ -31,11 +75,30 @@ const styles = StyleSheet.create({
 
     heading: {
         fontWeight: 'bold',
-        fontSize: 25,
+        fontSize: 22,
         color: '#3c5e6e',
-        margin: 10,
-        borderWidth: 1,
-        borderRadius: 10,
+        marginLeft: 20,
+        marginVertical: 20,
         padding: 10
+    },
+
+    personIcon: {
+        width: 60,
+        height: 60,
+        borderRadius: 50,
+        backgroundColor: '#eff0f0',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 20,
+        marginRight: 10
+    },
+
+    button: {
+        alignItems: 'center',
+        backgroundColor: 'rgb(96, 147, 171)',
+        height: 50,
+        width: 100,
+        borderRadius: 30,
+        justifyContent: 'center',
     },
 });
