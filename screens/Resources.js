@@ -35,10 +35,14 @@ const Resources = ({ navigation }) => {
     }, []);
 
     const SearchSection = () => {
-        const [search, setSearch] = useState('');
+        const [searchString, setSearchString] = useState('');
 
-        const updateSearch = (newSearch) => {
-            setSearch(newSearch);
+        const handleSearch = () => {
+
+        };
+
+        const handleReset = () => {
+
         };
 
         return (
