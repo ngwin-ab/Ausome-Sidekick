@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, FlatList, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, FlatList, TextInput, StyleSheet, Alert, TouchableOpacity, Dimensions } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import YoutubePlayer from 'react-native-youtube-iframe';
 
-const Practice2 = ({ navigation }) => {
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+const Practice = ({ navigation }) => {
     const showAlert = () => {
         Alert.alert('Test');
     };
@@ -11,9 +14,9 @@ const Practice2 = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView>
-                <View style={{ marginBottom: -70 }}>
+                <View style={{ marginBottom: 10 }}>
                     <YoutubePlayer
-                        height={300}
+                        height={200}
                         play={false}
                         videoId={'vmKEuybY7Jo'}
                     />
@@ -51,12 +54,11 @@ const QuizSection = () => {
         <View style={styles.quizSection}>
             <InputBox label='ANTECEDENT' />
             <InputBox label='BEHAVIOR' />
-            <InputBox label='SETTING' />
-            <InputBox label='POSSIBLE FUNCTION' />
+            <InputBox label='CONSEQUENCE' />
         </View>
     )
 }
-export default Practice2;
+export default Practice;
 
 const styles = StyleSheet.create({
     container: {
@@ -65,12 +67,12 @@ const styles = StyleSheet.create({
     },
 
     quizSection: {
-        marginHorizontal: 15,
+        marginHorizontal: windowWidth * 0.05,
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: 'rgb(96, 147, 171)',
+        backgroundColor: '#7c8eb3',
         height: 50,
         width: 100,
         borderRadius: 30,
@@ -78,14 +80,18 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        // height: 40,
+        marginVertical: '1.5%',
+        borderWidth: 1,
+        padding: '3%',
+        backgroundColor: '#ffff',
+        height: 50,
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        backgroundColor: '#ffff'
     },
 
     label: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#445E92'
     }
 });

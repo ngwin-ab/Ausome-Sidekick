@@ -11,9 +11,9 @@ const Practice = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView>
-                <View style={{ marginBottom: -70 }}>
+                <View style={{ marginBottom: 10 }}>
                     <YoutubePlayer
-                        height={300}
+                        height={200}
                         play={false}
                         videoId={'isdL9u_tYIc'}
                     />
@@ -51,8 +51,7 @@ const QuizSection = () => {
         <View style={styles.quizSection}>
             <InputBox label='ANTECEDENT' />
             <InputBox label='BEHAVIOR' />
-            <InputBox label='SETTING' />
-            <InputBox label='POSSIBLE FUNCTION' />
+            <InputBox label='CONSEQUENCE' />
         </View>
     )
 }
@@ -62,30 +61,34 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'rgb(235, 243, 250)',
+        height: '100%'
     },
 
     quizSection: {
-        marginHorizontal: 15,
+        marginHorizontal: '5%',
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: 'rgb(96, 147, 171)',
+        backgroundColor: '#7c8eb3',
         height: 50,
         width: 100,
-        // marginTop: 20,
         borderRadius: 30,
         justifyContent: 'center',
     },
 
     input: {
+        marginVertical: '1.5%',
+        borderWidth: 1,
+        backgroundColor: '#ffff',
+        height: 50,
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        backgroundColor: '#ffff'
     },
 
     label: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#445E92'
     }
 });
