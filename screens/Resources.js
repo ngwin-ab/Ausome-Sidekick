@@ -42,7 +42,7 @@ const Resources = ({ navigation }) => {
         };
 
         return (
-            <View style={{ height: '25%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
+            <View style={{ height: '30%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
                 <Text></Text>
                 <SearchBar
                     onChangeText={updateSearch}
@@ -65,7 +65,7 @@ const Resources = ({ navigation }) => {
 
     const MapSection = () => {
         return (
-            <View style={{ height: '75%', flexDirection: 'column' }}>
+            <View style={{ height: '70%', flexDirection: 'column' }}>
                 <MapView style={{ ...StyleSheet.absoluteFillObject }}
                     region={mapRegion}>
                     <Marker coordinate={mapRegion} title='Current location' />
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#7c8eb3',
         height: 50,
         width: 100,
-        marginTop: 8,
+        marginVertical: 10,
         borderRadius: 30,
         justifyContent: 'center',
     },
