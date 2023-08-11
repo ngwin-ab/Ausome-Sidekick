@@ -117,13 +117,13 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: 'black',
+        color: '#445E92',
         margin: 15,
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: 'rgb(96, 147, 171)',
+        backgroundColor: '#7c8eb3',
         height: 50,
         width: 100,
         marginTop: 20,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: 'rgb(196, 216, 228)',
+        backgroundColor: '#CFDDEA',
         borderWidth: 1,
         borderColor: 'white',
         borderRadius: 5,
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#3c5e6e'
+        color: '#445E92'
     },
 
     innerText: {

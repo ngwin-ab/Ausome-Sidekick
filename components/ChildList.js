@@ -40,8 +40,8 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
         <TouchableOpacity onPress={deleteMode ? null : onPress} style={styles.item} >
             <AvatarImages index={item.avatarIndex} />
             <View style={{ flex: 1 }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3c5e6e' }}>{item.name}</Text>
-                <Text style={{ fontSize: 20, color: '#3c5e6e' }}>Like: {item.like}</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#445E92' }}>{item.name}</Text>
+                <Text style={{ fontSize: 16, color: '#445E92' }}>Like: {item.like}</Text>
             </View>
             {deleteMode && (
                 <Ionicons style={styles.deleteButton} name="trash" size={24} color="#fff" onPress={() => handleEvent(item)} />
@@ -146,12 +146,12 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: 'rgb(196, 216, 228)',
+        backgroundColor: '#CFDDEA',
         borderWidth: 1,
         borderColor: '#bdc4c7',
         borderRadius: 5,
         paddingHorizontal: 10,
-        width: 400,
+        width: 300,
         height: 110,
         marginVertical: 8,
         alignSelf: 'center',
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: 'black',
+        color: '#445E92',
         margin: 15,
     },
 

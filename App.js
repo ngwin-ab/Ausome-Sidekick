@@ -47,15 +47,15 @@ const App = () => {
               backgroundColor: 'rgb(235, 243, 250)',
               borderTopColor: '#bfbfbf'
             },
-            tabBarActiveTintColor: 'black',
+            tabBarActiveTintColor: '#445E92',
             tabBarInactiveTintColor: 'grey',
           })}
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTitleStyle: {
-                  color: 'black', fontWeight: 'bold'
+                headerStyle: { backgroundColor: '#445E92' }, headerTitleStyle: {
+                  color: 'white', fontWeight: 'bold'
                 }
               }}>
               <HomeStack.Group>
@@ -74,8 +74,8 @@ const App = () => {
           <Tab.Screen name="Practice" options={{ headerShown: false }}>
             {() => (<PracticeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTitleStyle: {
-                  color: 'black', fontWeight: 'bold'
+                headerStyle: { backgroundColor: '#445E92' }, headerTitleStyle: {
+                  color: 'white', fontWeight: 'bold'
                 }
               }}>
               <PracticeStack.Group>
@@ -87,22 +87,22 @@ const App = () => {
             </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
-              headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'black',
+              headerStyle: { backgroundColor: '#445E92' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
-              headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'black',
+              headerStyle: { backgroundColor: '#445E92' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
-              headerStyle: { backgroundColor: 'rgb(200, 218, 213)' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'black',
+              headerStyle: { backgroundColor: '#445E92' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
