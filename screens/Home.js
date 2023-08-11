@@ -74,13 +74,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    heading: {
-        fontWeight: 'bold',
-        fontSize: 25,
-        color: '#3c5e6e',
-        margin: 15,
-    },
-
     separator: {
         marginVertical: 10,
     },

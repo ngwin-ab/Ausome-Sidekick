@@ -112,7 +112,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
-                        <Ionicons name='add-circle' size={50} color='rgb(96, 147, 171)' />
+                        <Ionicons name='add-circle' size={50} color='#445E92' />
                         <Text style={styles.heading}>Add child</Text>
                     </TouchableOpacity>
                 </View>
