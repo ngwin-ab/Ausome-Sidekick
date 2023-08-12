@@ -71,16 +71,16 @@ const ChildData = ({ route, navigation }) => {
 
     if (chartsRecorded.length === 0) {
         return (
-                <View style={styles.container}>
-                    <Text style={styles.heading}>Let's add {name}'s first chart!</Text>
-                    <TouchableOpacity
-                        style={styles.addbox}
-                        onPress={() => navigation.navigate('AddChart', { kidId })}>
-                        <Ionicons name='add-circle' size={50} color='#445E92' />
-                        <Text style={styles.heading}>Add chart</Text>
-                    </TouchableOpacity>
-                </View>
-            
+            <View style={styles.container}>
+                <Text style={styles.heading}>Let's add {name}'s first chart!</Text>
+                <TouchableOpacity
+                    style={styles.addbox}
+                    onPress={() => navigation.navigate('AddChart', { kidId })}>
+                    <Ionicons name='add-circle' size={50} color='#445E92' />
+                    <Text style={styles.heading}>Add chart</Text>
+                </TouchableOpacity>
+            </View>
+
         );
     }
 
@@ -95,10 +95,10 @@ const ChildData = ({ route, navigation }) => {
             />
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddChart',  { kidId })}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddChart', { kidId })}>
                     <Text style={{ color: '#fff', fontWeight: 'bold' }}>ADD</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => {}}>
+                <TouchableOpacity style={styles.button} onPress={() => { }}>
                     <Text style={{ color: '#fff', fontWeight: 'bold' }}>EXPORT</Text>
                 </TouchableOpacity>
             </View>
