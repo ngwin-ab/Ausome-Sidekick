@@ -8,10 +8,14 @@ const About = ({ navigation }) => {
                 to record ABC charts and, as a result better understand the function of children's behaviors.{'\n'}
                 In the long run, it is always recommended to seek for help from a qualified professional.</Text>
             <Text style={styles.heading}>Attribution</Text>
+            <View style={{marginVertical: 2}}></View>
+
             <View style={styles.attribution}>
                 <Text style={{fontSize: 18}}>App logo:</Text>
                 <Text style={{fontSize: 18}}>Designed by catalyststuff / Freepik.com</Text>
             </View>
+
+            <View style={{marginVertical: 10}}></View>
 
             <View style={styles.attribution}>
                 <Text style={{fontSize: 18}}>Avatar icons:</Text>
@@ -38,7 +42,7 @@ const styles = StyleSheet.create({
     },
 
     attribution: {
-        marginHorizontal: 40,
+        marginHorizontal: 20,
         textAlign: 'auto',
         lineHeight: 30,
     },

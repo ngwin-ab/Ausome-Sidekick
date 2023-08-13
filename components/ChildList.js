@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
 import AvatarImages from "../components/AvatarImages";
 import AddBtn from "./base_components/AddButton";
+
 const Separator = () => <View style={styles.separator} />;
 
 const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
