@@ -60,7 +60,7 @@ export default Practice;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(235, 243, 250)',
+        backgroundColor: '#eaf2f7',
         height: '100%'
     },
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#7c8eb3',
+        backgroundColor: '#748ca4',
         height: 50,
         width: 100,
         borderRadius: 30,
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
 
     label: {
         fontWeight: 'bold',
-        color: '#445E92'
+        color: '#1e3041'
     }
 });

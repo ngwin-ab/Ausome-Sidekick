@@ -26,10 +26,10 @@ const Home = ({ navigation }) => {
                     <Separator />
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 20 }}>
                         <TouchableOpacity style={ styles.button } onPress={() => navigation.navigate('AddChild')}>
-                            <Text style={{ color: '#fff', fontWeight: 'bold' }}>ADD</Text>
+                            <Text style={{ color: 'white', fontWeight: 'bold' }}>ADD</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={ styles.button } onPress={toggleDeleteMode}>
-                            <Text style={{ color: '#fff', fontWeight: 'bold' }}>{deleteMode ? 'DONE' : 'DELETE'}</Text>
+                            <Text style={{ color: 'white', fontWeight: 'bold' }}>{deleteMode ? 'DONE' : 'DELETE'}</Text>
                         </TouchableOpacity>
                     </View>
                 </>
@@ -45,12 +45,12 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(235, 243, 250)',
+        backgroundColor: '#eaf2f7',
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#7c8eb3',
+        backgroundColor: '#748ca4',
         height: 50,
         width: 100,
         marginTop: 20,

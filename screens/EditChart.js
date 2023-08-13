@@ -139,14 +139,14 @@ export default EditChart;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(235, 243, 250)',
+        backgroundColor: '#eaf2f7',
         // alignItems: 'stretch',
         // justifyContent: 'center',
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#7c8eb3',
+        backgroundColor: '#748ca4',
         height: 50,
         width: 100,
         marginTop: 20,
