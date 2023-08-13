@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 22,
-        color: '#1e3041',
+        color: '#133858',
         marginHorizontal: 20,
     },
 

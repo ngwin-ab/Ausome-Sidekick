@@ -47,14 +47,14 @@ const App = () => {
               backgroundColor: '#eaf2f7',
               borderTopColor: '#bfbfbf'
             },
-            tabBarActiveTintColor: '#1e3041',
+            tabBarActiveTintColor: '#133858',
             tabBarInactiveTintColor: 'grey',
           })}
         >
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#d0ebff' }, headerTitleStyle: {
+                headerStyle: { backgroundColor: '#d9efff' }, headerTitleStyle: {
                   color: '#454e55', fontWeight: 'bold'
                 }
               }}>

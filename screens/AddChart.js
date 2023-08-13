@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#1e3041',
+        color: '#133858',
         margin: 10,
     },
 });

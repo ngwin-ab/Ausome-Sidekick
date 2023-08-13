@@ -11,7 +11,7 @@ const Settings = ({ navigation }) => {
                     <Ionicons name="person" size={30} color="#c2c3c4" />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 15 }}>
-                    <Text style={{ fontSize: 18, color: '#1e3041' }}>Account information</Text>
+                    <Text style={{ fontSize: 18, color: '#133858' }}>Account information</Text>
                 </View>
                 <TouchableOpacity style={styles.icon}>
                     <Ionicons name="arrow-forward" size={30} color="grey" />
@@ -24,7 +24,7 @@ const Settings = ({ navigation }) => {
                     <Ionicons name="alarm" size={30} color="#c2c3c4" />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 15 }}>
-                    <Text style={{ fontSize: 18, color: '#1e3041' }}>Set reminders</Text>
+                    <Text style={{ fontSize: 18, color: '#133858' }}>Set reminders</Text>
                 </View>
                 <TouchableOpacity style={styles.icon}>
                     <Ionicons name="arrow-forward" size={30} color="grey" />
@@ -37,7 +37,7 @@ const Settings = ({ navigation }) => {
                     <Ionicons name="people-sharp" size={30} color="#c2c3c4" />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 15 }}>
-                    <Text style={{ fontSize: 19, color: '#1e3041' }}>Family member</Text>
+                    <Text style={{ fontSize: 19, color: '#133858' }}>Family member</Text>
                 </View>
                 <TouchableOpacity style={styles.icon}>
                     <Ionicons name="arrow-forward" size={30} color="grey" />
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 20,
-        color: '#1e3041',
+        color: '#133858',
         marginLeft: 20,
         marginVertical: 5,
         padding: 10

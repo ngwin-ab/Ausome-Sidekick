@@ -92,6 +92,6 @@ const styles = StyleSheet.create({
 
     label: {
         fontWeight: 'bold',
-        color: '#1e3041'
+        color: '#133858'
     }
 });
