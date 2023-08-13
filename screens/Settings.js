@@ -83,13 +83,12 @@ const styles = StyleSheet.create({
     },
 
     sectionContainer: {
-        backgroundColor: '#ffff',
+        backgroundColor: '#f1f8fe',
         flexDirection: 'row', 
         alignItems: 'center',
-        width: 360,
+        width: 400,
         height: 90,
         borderColor: 'transparent',
-        borderRadius: 20,
         alignSelf: 'center'
     },
 

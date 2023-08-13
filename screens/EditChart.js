@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#3c5e6e',
-        margin: 10,
+        color: '#1e3041',
+        margin: 15,
     },
 });
