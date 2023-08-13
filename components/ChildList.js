@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: '#d4e4ee',
+        backgroundColor: '#bbd4e6',
         borderWidth: 1,
         borderColor: '#bdc4c7',
         borderRadius: 5,

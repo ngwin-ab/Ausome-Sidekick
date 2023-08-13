@@ -54,8 +54,8 @@ const App = () => {
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#84aac7' }, headerTitleStyle: {
-                  color: 'white', fontWeight: 'bold'
+                headerStyle: { backgroundColor: '#d0ebff' }, headerTitleStyle: {
+                  color: '#454e55', fontWeight: 'bold'
                 }
               }}>
               <HomeStack.Group>

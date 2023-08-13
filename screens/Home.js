@@ -45,12 +45,12 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#eaf2f7',
+        backgroundColor: '#ecf7ff',
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#748ca4',
+        backgroundColor: '#7991a5',
         height: 50,
         width: 100,
         marginTop: 20,
