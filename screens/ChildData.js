@@ -13,6 +13,9 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useIsFocused } from '@react-navigation/native';
+import XLSX from 'xlsx';
+import * as FileSystem from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 
 const ChildData = ({ route, navigation }) => {
     const { kidId } = route.params;
@@ -38,6 +41,28 @@ const ChildData = ({ route, navigation }) => {
             console.error('Error fetching data:', error);
         };
     };
+
+    const generateExcel = () => {
+        let data_to_export = chartsRecorded.map(chart => ({
+            setting: chart.setting,
+            antecedent: chart.antecedent,
+            behavior: chart.behavior,
+            consequence: chart.consequence
+        }));
+
+        let wb = XLSX.utils.book_new();
+        let ws = XLSX.utils.json_to_sheet(data_to_export)
+
+        XLSX.utils.book_append_sheet(wb, ws, "Users")
+        const base64 = XLSX.write(wb, { type: 'base64', bookType: "xlsx" });
+        const fileName = FileSystem.documentDirectory + "ABCdata.xlsx";
+
+        FileSystem.writeAsStringAsync(fileName, base64, {
+            encoding: FileSystem.EncodingType.Base64
+        }).then(() => {
+            Sharing.shareAsync(fileName);
+        });
+    }
 
     useEffect(() => {
         isFocused && getData();
@@ -98,8 +123,8 @@ const ChildData = ({ route, navigation }) => {
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddChart',  { kidId })}>
                     <Text style={{ color: '#fff', fontWeight: 'bold' }}>ADD</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => {}}>
-                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>EXPORT</Text>
+                <TouchableOpacity style={styles.button} onPress={() => generateExcel()}>
+                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>SHARE</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
