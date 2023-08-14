@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { SearchBar } from "@rneui/base";
-import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import Config from "react-native-config";
+// import Config from "react-native-config";
 
 const Resources = ({ navigation }) => {
     const [mapRegion, setMapRegion] = useState({
@@ -12,6 +12,8 @@ const Resources = ({ navigation }) => {
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     });
+
+    const [markers, setMarkers] = useState([]);
 
     const getLocation = async () => {
         let { status } = await Location.requestForegroundPermissionsAsync();
@@ -41,6 +43,52 @@ const Resources = ({ navigation }) => {
             setSearch(newSearch);
         };
 
+        const handleSearch = async () => {
+            try {
+                const response = await fetch(
+                    `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${search}&key=${GOOGLE_API_KEY}`
+                );
+
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                const data = await response.json();
+                const results = data.results;
+                console.log
+
+                if (results.length > 0) {
+                    const markersArray = results.map((result) => {
+                        const { geometry, name } = result;
+                        const location = geometry.location;
+
+                        return {
+                            latitude: location.lat,
+                            longitude: location.lng,
+                            title: name,
+                        };
+                    });
+
+                    setMarkers(markersArray);
+
+                    // Set the map region based on the first result
+                    const firstResult = results[0];
+                    const { geometry } = firstResult;
+                    const location = geometry.location;
+
+                    setMapRegion({
+                        latitude: location.lat,
+                        longitude: location.lng,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching search results:", error);
+            }
+        };
+
+
         return (
             <View style={{ height: '30%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
                 <Text></Text>
@@ -52,13 +100,13 @@ const Resources = ({ navigation }) => {
                     containerStyle={{ backgroundColor: 'rgb(235, 243, 250)' }}
                 />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
-                <TouchableOpacity style={styles.button} onPress={() => {}}>
-                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>SEARCH</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => {}}>
-                    <Text style={{ color: '#fff', fontWeight: 'bold' }}>RESET</Text>
-                </TouchableOpacity>
-            </View>
+                    <TouchableOpacity style={styles.button} onPress={() => { handleSearch() }}>
+                        <Text style={{ color: '#fff', fontWeight: 'bold' }}>SEARCH</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => { }}>
+                        <Text style={{ color: '#fff', fontWeight: 'bold' }}>RESET</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     };
@@ -68,7 +116,16 @@ const Resources = ({ navigation }) => {
             <View style={{ height: '70%', flexDirection: 'column' }}>
                 <MapView style={{ ...StyleSheet.absoluteFillObject }}
                     region={mapRegion}>
-                    <Marker coordinate={mapRegion} title='Current location' />
+                    {markers.map((marker, index) => (
+                        <Marker
+                            key={index}
+                            coordinate={{
+                                latitude: marker.latitude,
+                                longitude: marker.longitude,
+                            }}
+                            title={marker.title}
+                        />
+                    ))}
                 </MapView>
             </View>
         );
@@ -94,7 +151,7 @@ const styles = StyleSheet.create({
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#7c859d',
+        backgroundColor: '#7c8eb3',
         height: 50,
         width: 100,
         marginVertical: 10,
