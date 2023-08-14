@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#7c8eb3',
+        backgroundColor: '#5b6684',
         height: 50,
         width: 100,
         margin: 20,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 22,
-        color: '#445E92',
+        color: '#121b45',
         marginHorizontal: 20,
     },
 

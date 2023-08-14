@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 22,
-        color: '#445E92',
+        color: '#121b45',
         marginHorizontal: 20,
         lineHeight: 30,
     },

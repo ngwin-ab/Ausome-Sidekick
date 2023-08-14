@@ -101,7 +101,7 @@ const ChildData = ({ route, navigation }) => {
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChart', { kidId })}>
-                        <Ionicons name='add-circle' size={50} color='#445E92' />
+                        <Ionicons name='add-circle' size={50} color='#121b45' />
                         <Text style={styles.heading}>Add chart</Text>
                     </TouchableOpacity>
                 </View>
@@ -142,13 +142,13 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#445E92',
+        color: '#121b45',
         margin: 15,
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#7c8eb3',
+        backgroundColor: '#5b6684',
         height: 50,
         width: 100,
         marginTop: 20,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: '#CFDDEA',
+        backgroundColor: '#ccd3ef',
         borderWidth: 1,
         borderColor: 'white',
         borderRadius: 5,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#445E92'
+        color: '#121b45'
     },
 
     innerText: {
