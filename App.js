@@ -54,7 +54,7 @@ const App = () => {
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#748ad3' }, headerTitleStyle: {
+                headerStyle: { backgroundColor: '#49578a' }, headerTitleStyle: {
                   color: 'white', fontWeight: 'bold'
                 }
               }}>
@@ -74,7 +74,7 @@ const App = () => {
           <Tab.Screen name="Practice" options={{ headerShown: false }}>
             {() => (<PracticeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#748ad3' }, headerTitleStyle: {
+                headerStyle: { backgroundColor: '#49578a' }, headerTitleStyle: {
                   color: 'white', fontWeight: 'bold'
                 }
               }}>
@@ -87,21 +87,21 @@ const App = () => {
             </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
-              headerStyle: { backgroundColor: '#748ad3' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
               headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
-              headerStyle: { backgroundColor: '#748ad3' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
               headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
-              headerStyle: { backgroundColor: '#748ad3' }, headerTintColor: '#fff',
+              headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
               headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
