@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         borderColor: '#bdc4c7',
         borderRadius: 5,
         paddingHorizontal: 10,
-        width: 300,
+        width: 330,
         height: 110,
         marginVertical: 8,
         alignSelf: 'center',
