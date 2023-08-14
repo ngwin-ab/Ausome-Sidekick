@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: '#d6eaff',
+        backgroundColor: '#cbd3ee',
         borderWidth: 1,
         borderColor: 'white',
         borderRadius: 5,

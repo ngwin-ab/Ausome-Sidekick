@@ -54,8 +54,8 @@ const App = () => {
           <Tab.Screen name="Home" options={{ headerShown: false }}>
             {() => (<HomeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#324c9a' }, headerTitleStyle: {
-                  color: '#061239', fontWeight: 'bold'
+                headerStyle: { backgroundColor: '#738bd4' }, headerTitleStyle: {
+                  color: 'white', fontWeight: 'bold'
                 }
               }}>
               <HomeStack.Group>
@@ -74,8 +74,8 @@ const App = () => {
           <Tab.Screen name="Practice" options={{ headerShown: false }}>
             {() => (<PracticeStack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#324c9a' }, headerTitleStyle: {
-                  color: '#061239', fontWeight: 'bold'
+                headerStyle: { backgroundColor: '#738bd4' }, headerTitleStyle: {
+                  color: 'white', fontWeight: 'bold'
                 }
               }}>
               <PracticeStack.Group>
@@ -87,22 +87,22 @@ const App = () => {
             </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
-              headerStyle: { backgroundColor: '#96a7dd' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: '#061239',
+              headerStyle: { backgroundColor: '#738bd4' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
-              headerStyle: { backgroundColor: '#96a7dd' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: '#061239',
+              headerStyle: { backgroundColor: '#738bd4' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
-              headerStyle: { backgroundColor: '#96a7dd' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: '#061239',
+              headerStyle: { backgroundColor: '#738bd4' }, headerTintColor: '#fff',
+              headerTitleStyle: { color: 'white',
                 fontWeight: 'bold',
               }
             }} />
