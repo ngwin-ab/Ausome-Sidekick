@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { StyleSheet, Text, View, Button, ScrollView, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { StackActions } from '@react-navigation/native';
-import CalendarBox from '../components/base_components/CalendarBox';
+import { Alert } from 'react-native';
 
 const Separator = () => <View style={styles.separator} />;
 const InputBox = ({ label, value, onChangeText }) => {
@@ -57,6 +57,12 @@ const AddChart = ({ route, navigation }) => {
     }, []);
 
     const saveData = async () => {
+        
+        if (!formValues.setting || !formValues.antecedent || !formValues.behavior || !formValues.consequence) {
+            Alert.alert('Missing Data', 'Please complete all fields!');
+            return;
+        }
+
         setIsLoading(true);
         const url = `http://10.0.0.136:3000/kids/${kidId}`;
         try {
