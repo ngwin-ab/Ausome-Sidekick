@@ -5,7 +5,7 @@ import YoutubePlayer from 'react-native-youtube-iframe';
 
 const Practice = ({ navigation }) => {
     const showAlert = () => {
-        Alert.alert('', `Antecedent: Dad asked James to put away his dish.\n\nBehavior: James did not follow the request and hit Dad's hands.\n\nConsequence: Dad put James's dish away for him.`);
+        Alert.alert('', `Antecedent: Dad asked James to put away his dish.\n\nBehavior: James did not follow the request and hit Dad's hands.\n\nConsequence: Dad put James's dish away for him.\n\nPossible function: Avoidance`);
     };
 
     return (
