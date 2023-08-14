@@ -14,7 +14,7 @@ const Practice = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView>
-                <View style={{ marginBottom: 10 }}>
+                <View style={{ marginBottom: 15 }}>
                     <YoutubePlayer
                         height={200}
                         play={false}
