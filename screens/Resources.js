@@ -7,8 +7,8 @@ import * as Location from 'expo-location';
 
 const Resources = ({ navigation }) => {
     const [mapRegion, setMapRegion] = useState({
-        latitude: 37.78825,
-        longitude: -122.4324,
+        latitude: 33.77962,
+        longitude: -84.40948,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     });
@@ -46,7 +46,7 @@ const Resources = ({ navigation }) => {
         const handleSearch = async () => {
             try {
                 const response = await fetch(
-                    `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${search}&key=${GOOGLE_API_KEY}`
+                    `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${search}&key=AIzaSyD6AhcmHQIZibGJu8CjmMUIE_soqxlhiug`
                 );
 
                 if (!response.ok) {
@@ -88,6 +88,16 @@ const Resources = ({ navigation }) => {
             }
         };
 
+        const handleReset = () => {
+            setSearch('');
+            setMarkers([]);
+            setMapRegion({
+                latitude: 37.78825,
+                longitude: -122.4324,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+            });
+        };
 
         return (
             <View style={{ height: '30%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
@@ -100,10 +110,10 @@ const Resources = ({ navigation }) => {
                     containerStyle={{ backgroundColor: 'rgb(235, 243, 250)' }}
                 />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
-                    <TouchableOpacity style={styles.button} onPress={() => { handleSearch() }}>
+                    <TouchableOpacity style={styles.button} onPress={() => {handleSearch()}}>
                         <Text style={{ color: '#fff', fontWeight: 'bold' }}>SEARCH</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => { }}>
+                    <TouchableOpacity style={styles.button} onPress={() => {handleReset()}}>
                         <Text style={{ color: '#fff', fontWeight: 'bold' }}>RESET</Text>
                     </TouchableOpacity>
                 </View>
