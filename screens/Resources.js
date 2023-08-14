@@ -100,7 +100,7 @@ const Resources = ({ navigation }) => {
         };
 
         return (
-            <View style={{ height: '30%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
+            <View style={{ height: '29%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
                 <Text></Text>
                 <SearchBar
                     onChangeText={updateSearch}
@@ -123,7 +123,7 @@ const Resources = ({ navigation }) => {
 
     const MapSection = () => {
         return (
-            <View style={{ height: '70%', flexDirection: 'column' }}>
+            <View style={{ height: '71%', flexDirection: 'column' }}>
                 <MapView style={{ ...StyleSheet.absoluteFillObject }}
                     region={mapRegion}>
                     {markers.map((marker, index) => (
