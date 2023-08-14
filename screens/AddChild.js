@@ -10,6 +10,11 @@ const AddChild = ({ navigation }) => {
     const [selectedAvatarIndex, setSelectedAvatarIndex] = useState(null);
 
     const saveData = () => {
+        if (!name) {
+            Alert.alert('Missing Name', 'Please enter the child\'s name!');
+            return;
+        }
+
         const url = 'http://10.0.0.136:3000/kids';
         fetch(url, {
             method: 'POST',
