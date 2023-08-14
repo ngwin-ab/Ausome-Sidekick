@@ -60,14 +60,14 @@ const AddChild = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#eaf2f7',
+        backgroundColor: '#ebf4ff',
         // alignItems: 'center',
         // justifyContent: 'center',
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#748ca4',
+        backgroundColor: '#5c6788',
         height: 50,
         width: 100,
         margin: 20,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 22,
-        color: '#133858',
+        color: '#051441',
         marginHorizontal: 20,
     },
 

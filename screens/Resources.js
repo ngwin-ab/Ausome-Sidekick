@@ -42,14 +42,14 @@ const Resources = ({ navigation }) => {
         };
 
         return (
-            <View style={{ height: '30%', backgroundColor: '#eaf2f7', flexDirection: 'column' }}>
+            <View style={{ height: '30%', backgroundColor: '#ebf4ff', flexDirection: 'column' }}>
                 <Text></Text>
                 <SearchBar
                     onChangeText={updateSearch}
                     value={search}
                     lightTheme={true}
                     round={true}
-                    containerStyle={{ backgroundColor: '#eaf2f7' }}
+                    containerStyle={{ backgroundColor: '#ebf4ff' }}
                 />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
                 <TouchableOpacity style={styles.button} onPress={() => {}}>
@@ -87,14 +87,14 @@ export default Resources;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#eaf2f7',
+        backgroundColor: '#ebf4ff',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#748ca4',
+        backgroundColor: '#5c6788',
         height: 50,
         width: 100,
         marginVertical: 10,

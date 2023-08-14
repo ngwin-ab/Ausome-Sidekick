@@ -40,8 +40,8 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
         <TouchableOpacity onPress={deleteMode ? null : onPress} style={styles.item} >
             <AvatarImages index={item.avatarIndex} />
             <View style={{ flex: 1 }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#133858' }}>{item.name}</Text>
-                <Text style={{ fontSize: 16, color: '#133858' }}>Like: {item.like}</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#051441' }}>{item.name}</Text>
+                <Text style={{ fontSize: 16, color: '#051441' }}>Like: {item.like}</Text>
             </View>
             {deleteMode && (
                 <Ionicons style={styles.deleteButton} name="trash" size={24} color="#fff" onPress={() => handleEvent(item)} />
@@ -112,7 +112,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
-                        <Ionicons name='add-circle' size={50} color='#133858' />
+                        <Ionicons name='add-circle' size={50} color='#051441' />
                         <Text style={styles.heading}>Add child</Text>
                     </TouchableOpacity>
                 </View>
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     },
 
     item: {
-        backgroundColor: '#B8DBF5',
+        backgroundColor: '#cbd3ee',
         borderWidth: 1,
         borderColor: '#bdc4c7',
         borderRadius: 5,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#133858',
+        color: '#051441',
         margin: 15,
     },
 

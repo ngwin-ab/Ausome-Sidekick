@@ -11,7 +11,7 @@ const Settings = ({ navigation }) => {
                     <Ionicons name="person" size={30} color="#c2c3c4" />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 15 }}>
-                    <Text style={{ fontSize: 18, color: '#133858' }}>Account information</Text>
+                    <Text style={{ fontSize: 18, color: '#051441' }}>Account information</Text>
                 </View>
                 <TouchableOpacity style={styles.icon}>
                     <Ionicons name="arrow-forward" size={30} color="grey" />
@@ -24,7 +24,7 @@ const Settings = ({ navigation }) => {
                     <Ionicons name="alarm" size={30} color="#c2c3c4" />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 15 }}>
-                    <Text style={{ fontSize: 18, color: '#133858' }}>Set reminders</Text>
+                    <Text style={{ fontSize: 18, color: '#051441' }}>Set reminders</Text>
                 </View>
                 <TouchableOpacity style={styles.icon}>
                     <Ionicons name="arrow-forward" size={30} color="grey" />
@@ -37,7 +37,7 @@ const Settings = ({ navigation }) => {
                     <Ionicons name="people-sharp" size={30} color="#c2c3c4" />
                 </TouchableOpacity>
                 <View style={{ flex: 1, marginLeft: 15 }}>
-                    <Text style={{ fontSize: 19, color: '#133858' }}>Family member</Text>
+                    <Text style={{ fontSize: 19, color: '#051441' }}>Family member</Text>
                 </View>
                 <TouchableOpacity style={styles.icon}>
                     <Ionicons name="arrow-forward" size={30} color="grey" />
@@ -58,7 +58,7 @@ export default Settings;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#eaf2f7',
+        backgroundColor: '#ebf4ff',
         // alignItems: 'center',
         // justifyContent: 'center',
     },
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 20,
-        color: '#133858',
+        color: '#051441',
         marginLeft: 20,
         marginVertical: 5,
         padding: 10
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#748ca4',
+        backgroundColor: '#5c6788',
         height: 50,
         width: 100,
         borderRadius: 30,

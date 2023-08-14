@@ -121,14 +121,14 @@ export default AddChart;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#eaf2f7',
+        backgroundColor: '#ebf4ff',
         // alignItems: 'stretch',
         // justifyContent: 'center',
     },
 
     button: {
         alignItems: 'center',
-        backgroundColor: '#748ca4',
+        backgroundColor: '#5c6788',
         height: 50,
         width: 100,
         // marginTop: 20,
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#133858',
+        color: '#051441',
         margin: 10,
     },
 });

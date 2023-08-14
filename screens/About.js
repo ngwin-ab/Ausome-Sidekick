@@ -20,7 +20,7 @@ export default About;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#eaf2f7',
+        backgroundColor: '#ebf4ff',
     },
 
     text: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     heading: {
         fontWeight: 'bold',
         fontSize: 25,
-        color: '#133858',
+        color: '#051441',
         margin: 10,
         borderWidth: 1,
         borderRadius: 10,
