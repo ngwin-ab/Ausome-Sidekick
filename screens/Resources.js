@@ -3,9 +3,12 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { SearchBar } from "@rneui/base";
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import {GOOGLE_MAPS_API_KEY} from '@env';
 // import Config from "react-native-config";
 
 const Resources = ({ navigation }) => {
+    console.log(GOOGLE_MAPS_API_KEY);
+
     const [mapRegion, setMapRegion] = useState({
         latitude: 33.77962,
         longitude: -84.40948,
@@ -46,7 +49,7 @@ const Resources = ({ navigation }) => {
         const handleSearch = async () => {
             try {
                 const response = await fetch(
-                    `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${search}&key=AIzaSyD6AhcmHQIZibGJu8CjmMUIE_soqxlhiug`
+                    `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${search}&key=${GOOGLE_MAPS_API_KEY}`
                 );
 
                 if (!response.ok) {
