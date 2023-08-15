@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StatusBar, Button, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,16 +16,144 @@ import Practice2 from './screens/Practice2';
 import Practice3 from './screens/Practice3';
 import About from './screens/About';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import OnboardingPages from './components/OnboardingPages';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
 const PracticeStack = createNativeStackNavigator();
 
 const App = () => {
+  const [showOnboarding, setShowOnboarding] = useState(true);
+
+  // Function to handle completion of onboarding
+  const handleOnboardingComplete = () => {
+    setShowOnboarding(false);
+  };
+
   return (
-    <View style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
+    <View style={{ flex: 1 }}>
       <NavigationContainer>
-        <Tab.Navigator tabBaroptions={{ headerShown: false }}
+        {showOnboarding ? (
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            {/* Define a stack screen for OnboardingPages */}
+            <Stack.Screen
+              name="OnboardingPages"
+              component={() => <OnboardingPages onComplete={handleOnboardingComplete} />}
+            />
+          </Stack.Navigator>
+        ) : (
+          <Tab.Navigator
+            tabBarOptions={{
+              headerShown: false,
+              tabBarLabelStyle: { fontSize: 11.5 },
+              tabBarIcon: ({ focused, size, color }) => {
+                let iconName;
+
+                if (route.name === 'Home') {
+                  iconName = focused ? 'home' : 'home-outline';
+                } else if (route.name === 'Settings') {
+                  iconName = focused ? 'settings' : 'settings-outline';
+                } else if (route.name === 'Resources') {
+                  iconName = focused ? 'search' : 'search-outline';
+                } else if (route.name === 'Practice') {
+                  iconName = focused ? 'videocam' : 'videocam-outline';
+                } else if (route.name === 'About') {
+                  iconName = focused ? 'document' : 'document-outline';
+                }
+                return <Ionicons name={iconName} size={22} color={color} />;
+              }, tabBarStyle: {
+                backgroundColor: 'rgb(235, 243, 250)',
+                borderTopColor: '#bfbfbf'
+              },
+              tabBarActiveTintColor: '#121b45',
+              tabBarInactiveTintColor: 'grey',
+              tabBarHideOnKeyboard: true
+            }}
+          >
+            <Tab.Screen
+              name="Home"
+              component={() => (
+                <HomeStack.Navigator
+                  screenOptions={{
+                    headerStyle: { backgroundColor: '#49578a' },
+                    headerTitleStyle: { color: 'white', fontWeight: 'bold' },
+                  }}
+                >
+                  {() => (<HomeStack.Navigator
+                    screenOptions={{
+                      headerStyle: { backgroundColor: '#49578a' }, headerTitleStyle: {
+                        color: 'white', fontWeight: 'bold'
+                      }
+                    }}>
+                    <HomeStack.Group>
+                      <HomeStack.Screen name="MyKids" component={Home} options={{ title: "My kids" }} />
+                      <HomeStack.Screen name="AddChild" component={AddChild} options={{ title: "Add a child" }} />
+                    </HomeStack.Group>
+                    <HomeStack.Group>
+                      <HomeStack.Screen name="ChildData" component={ChildData}
+                        options={{ title: "Data" }} />
+                      <HomeStack.Screen name="EditChart" component={EditChart} options={{ title: "Edit Chart" }} />
+                      <HomeStack.Screen name="AddChart" component={AddChart} options={{ title: "Record ABC chart" }} />
+                    </HomeStack.Group>
+                  </HomeStack.Navigator>)}
+                </HomeStack.Navigator>
+              )}
+              options={{ headerShown: false }}
+            />
+
+            <Tab.Screen
+              name="Practice"
+              component={() => (
+                <PracticeStack.Navigator
+                  screenOptions={{
+                    headerStyle: { backgroundColor: '#49578a' },
+                    headerTitleStyle: { color: 'white', fontWeight: 'bold' },
+                  }}
+                >
+                  <PracticeStack.Group>
+                    <PracticeStack.Screen name="Practice1" component={Practice} options={{ title: "Practice 1" }} />
+                    <PracticeStack.Screen name="Practice2" component={Practice2} options={{ title: "Practice 2" }} />
+                    <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice 3" }} />
+                  </PracticeStack.Group>
+                </PracticeStack.Navigator>
+              )}
+              options={{ headerShown: false }}
+            />
+
+            <Tab.Screen name="Resources" component={Resources}
+              options={{
+                headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
+                headerTitleStyle: {
+                  color: 'white',
+                  fontWeight: 'bold',
+                }
+              }} />
+            <Tab.Screen name="Settings" component={Settings}
+              options={{
+                headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
+                headerTitleStyle: {
+                  color: 'white',
+                  fontWeight: 'bold',
+                }
+              }} />
+            <Tab.Screen name="About" component={About}
+              options={{
+                headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
+                headerTitleStyle: {
+                  color: 'white',
+                  fontWeight: 'bold',
+                }
+              }} />
+          </Tab.Navigator>
+        )}
+      </NavigationContainer>
+    </View>
+  );
+};
+
+
+{/* <Tab.Navigator tabBaroptions={{ headerShown: false }}
           screenOptions={({ route }) => ({
             tabBarLabelStyle: { fontSize: 11.5 },
             tabBarIcon: ({ focused, size, color }) => {
@@ -107,11 +235,8 @@ const App = () => {
                 fontWeight: 'bold',
               }
             }} />
-        </Tab.Navigator>
+        </Tab.Navigator> */}
 
-      </NavigationContainer>
-    </View>
-  );
-};
+
 
 export default App;

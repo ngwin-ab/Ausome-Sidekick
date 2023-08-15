@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { SearchBar } from "@rneui/base";
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import {GOOGLE_MAPS_API_KEY} from "@env";
 // import Config from "react-native-config";
 
 const Resources = ({ navigation }) => {
