@@ -43,7 +43,7 @@ const EditChart = ({ route, navigation }) => {
     }, []);
 
     const saveData = async () => {
-        const url = `http://10.0.0.136:3000/charts/${chart._id}`;
+        const url = `http://10.0.0.136:443/charts/${chart._id}`;
         try {
             const response = await fetch(url, {
                 method: 'PUT',
@@ -61,7 +61,7 @@ const EditChart = ({ route, navigation }) => {
 
     const deleteChart = async () => {
         try {
-            const url = `http://10.0.0.136:3000/charts/${chart._id}`;
+            const url = `http://10.0.0.136:443/charts/${chart._id}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {

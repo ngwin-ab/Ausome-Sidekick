@@ -14,7 +14,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
     const [selectedId, setSelectedId] = useState();
 
     const getData = () => {
-        const url = 'http://10.0.0.136:3000/kids';
+        const url = 'https://ausome-sidekick-c2c64a71e070.herokuapp.com/kids';
         fetch(url, {
             method: 'GET',
             headers: {
@@ -54,7 +54,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
 
     const deleteKid = async (item) => {
         try {
-            const url = `http://10.0.0.136:3000/kids/${item.id}`;
+            const url = `https://ausome-sidekick-c2c64a71e070.herokuapp.com/kids/${item.id}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
@@ -100,16 +100,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
     return (
         <View style={{ marginTop: 20, flex: 1 }}>
             {data.length === 0 ? (
-                // <View style={styles.addbox} >
-                //     <AddBtn buttonText='ADD KID' onPress={() => navigation.navigate('AddChild')}></AddBtn>
-                // </View>
                 <View>
-                    {/* <TouchableOpacity
-                        style={styles.addbox}
-                        onPress={() => navigation.navigate('AddChild')}>
-                        <Ionicons name='add-circle' size={100} color='black' />
-                        <Text style={styles.heading}>Add child</Text>
-                    </TouchableOpacity> */}
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
