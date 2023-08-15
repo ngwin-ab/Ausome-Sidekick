@@ -15,7 +15,7 @@ const AddChild = ({ navigation }) => {
             return;
         }
 
-        const url = 'http://10.0.0.136:3000/kids';
+        const url = 'http://10.0.0.136:443/kids';
         fetch(url, {
             method: 'POST',
             headers: {

@@ -28,7 +28,7 @@ const ChildData = ({ route, navigation }) => {
 
     const getData = async () => {
         try {
-            const url = `http://10.0.0.136:3000/kids/${kidId}`;
+            const url = `http://10.0.0.136:443/kids/${kidId}`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
