@@ -15,7 +15,7 @@ const AddChild = ({ navigation }) => {
             return;
         }
 
-        const url = 'http://10.0.0.136:443/kids';
+        const url = 'https://ausome-sidekick-c2c64a71e070.herokuapp.com/kids';
         fetch(url, {
             method: 'POST',
             headers: {

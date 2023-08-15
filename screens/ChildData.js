@@ -28,7 +28,7 @@ const ChildData = ({ route, navigation }) => {
 
     const getData = async () => {
         try {
-            const url = `http://10.0.0.136:443/kids/${kidId}`;
+            const url = `https://ausome-sidekick-c2c64a71e070.herokuapp.com/kids/${kidId}`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
