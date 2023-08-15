@@ -1,9 +1,11 @@
-import React from 'react';
-import { View, StatusBar, Button, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import { View, StatusBar, Button, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import 'react-native-gesture-handler';
+
+// Screens imports
 import Home from './screens/Home';
 import AddChild from './screens/AddChild';
 import Resources from './screens/Resources';
@@ -15,6 +17,7 @@ import Practice from './screens/Practice';
 import Practice2 from './screens/Practice2';
 import Practice3 from './screens/Practice3';
 import About from './screens/About';
+import OnboardingScreen from './components/OnboardingScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -22,6 +25,16 @@ const HomeStack = createNativeStackNavigator();
 const PracticeStack = createNativeStackNavigator();
 
 const App = () => {
+  const [showOnboarding, setShowOnboarding] = useState(true);
+
+  const handleOnboardingDone = () => {
+    setShowOnboarding(false); // Update the state to hide onboarding screen
+  };
+
+  if (showOnboarding) {
+    return <OnboardingScreen onPress={handleOnboardingDone} />;
+  }
+
   return (
     <View style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
       <NavigationContainer>
