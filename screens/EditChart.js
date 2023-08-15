@@ -43,7 +43,7 @@ const EditChart = ({ route, navigation }) => {
     }, []);
 
     const saveData = async () => {
-        const url = `http://10.0.0.136:443/charts/${chart._id}`;
+        const url = `https://ausome-sidekick-c2c64a71e070.herokuapp.com/charts/${chart._id}`;
         try {
             const response = await fetch(url, {
                 method: 'PUT',
@@ -61,7 +61,7 @@ const EditChart = ({ route, navigation }) => {
 
     const deleteChart = async () => {
         try {
-            const url = `http://10.0.0.136:443/charts/${chart._id}`;
+            const url = `https://ausome-sidekick-c2c64a71e070.herokuapp.com/charts/${chart._id}`;
             const response = await fetch(url, {
                 method: 'DELETE',
                 headers: {
@@ -94,7 +94,7 @@ const EditChart = ({ route, navigation }) => {
 
     return (
 
-        <View style={styles.container}>
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
             <Text style={styles.heading}>{kidName}</Text>
             <Separator />
             <InputBox
@@ -129,7 +129,7 @@ const EditChart = ({ route, navigation }) => {
                     <Text style={{ color: '#fff', fontWeight: 'bold' }}>DELETE</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
 
     );
 };

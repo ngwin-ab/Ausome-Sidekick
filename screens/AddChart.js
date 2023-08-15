@@ -85,7 +85,7 @@ const AddChart = ({ route, navigation }) => {
             <Text>Loading...</Text>
         </View>
     ) : (
-        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
             <View style={styles.container}>
                 <Text style={styles.heading}>{data.name}</Text>
                 <Separator />
