@@ -44,10 +44,10 @@ const ChildData = ({ route, navigation }) => {
 
     const generateExcel = () => {
         let data_to_export = chartsRecorded.map(chart => ({
-            setting: chart.setting,
             antecedent: chart.antecedent,
             behavior: chart.behavior,
-            consequence: chart.consequence
+            consequence: chart.consequence,
+            function: chart.function,
         }));
 
         let wb = XLSX.utils.book_new();
@@ -70,14 +70,14 @@ const ChildData = ({ route, navigation }) => {
 
     const Item = ({ item, onPress }) => (
         <TouchableOpacity onPress={onPress} style={[styles.item]}>
-            <Text style={[styles.title]}>SETTING</Text>
-            <Text style={[styles.innerText]}>{item.setting}</Text>
             <Text style={[styles.title]}>ANTECEDENT</Text>
             <Text style={[styles.innerText]}>{item.antecedent}</Text>
             <Text style={[styles.title]}>BEHAVIOR</Text>
             <Text style={[styles.innerText]}>{item.behavior}</Text>
             <Text style={[styles.title]}>CONSEQUENCE</Text>
             <Text style={[styles.innerText]}>{item.consequence}</Text>
+            <Text style={[styles.title]}>POSSIBLE FUNCTION</Text>
+            <Text style={[styles.innerText]}>{item.function}</Text>
         </TouchableOpacity>
     );
 

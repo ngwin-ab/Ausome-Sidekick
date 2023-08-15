@@ -27,18 +27,18 @@ const EditChart = ({ route, navigation }) => {
     const [data, setData] = useState([]);
 
     const [formValues, setFormValues] = useState({
-        setting: '',
         antecedent: '',
         behavior: '',
         consequence: '',
+        function: ''
     });
 
     useEffect(() => {
         setFormValues({
-            setting: chart.setting,
             antecedent: chart.antecedent,
             behavior: chart.behavior,
-            consequence: chart.consequence
+            consequence: chart.consequence,
+            function: chart.function,
         });
     }, []);
 
@@ -98,11 +98,6 @@ const EditChart = ({ route, navigation }) => {
             <Text style={styles.heading}>{kidName}</Text>
             <Separator />
             <InputBox
-                label="Setting"
-                onChangeText={(text) => setFormValues({ ...formValues, setting: text })}
-                value={formValues.setting}
-            />
-            <InputBox
                 label="Antecedent"
                 onChangeText={(text) => setFormValues({ ...formValues, antecedent: text })}
                 value={formValues.antecedent}
@@ -116,6 +111,11 @@ const EditChart = ({ route, navigation }) => {
                 label="Consequence"
                 onChangeText={(text) => setFormValues({ ...formValues, consequence: text })}
                 value={formValues.consequence}
+            />
+            <InputBox
+                label="Possible function"
+                onChangeText={(text) => setFormValues({ ...formValues, function: text })}
+                value={formValues.function}
             />
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>

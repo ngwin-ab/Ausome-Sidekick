@@ -27,10 +27,10 @@ const AddChart = ({ route, navigation }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const [formValues, setFormValues] = useState({
-        setting: '',
         antecedent: '',
         behavior: '',
         consequence: '',
+        function: ''
     });
 
     const getData = () => {
@@ -57,8 +57,8 @@ const AddChart = ({ route, navigation }) => {
     }, []);
 
     const saveData = async () => {
-        
-        if (!formValues.setting || !formValues.antecedent || !formValues.behavior || !formValues.consequence) {
+
+        if (!formValues.antecedent || !formValues.behavior || !formValues.consequence || !formValues.function) {
             Alert.alert('Missing Data', 'Please complete all fields!');
             return;
         }
@@ -90,11 +90,6 @@ const AddChart = ({ route, navigation }) => {
                 <Text style={styles.heading}>{data.name}</Text>
                 <Separator />
                 <InputBox
-                    label="Setting"
-                    onChangeText={(text) => setFormValues({ ...formValues, setting: text })}
-                    value={formValues.setting}
-                />
-                <InputBox
                     label="Antecedent"
                     onChangeText={(text) => setFormValues({ ...formValues, antecedent: text })}
                     value={formValues.antecedent}
@@ -109,11 +104,16 @@ const AddChart = ({ route, navigation }) => {
                     onChangeText={(text) => setFormValues({ ...formValues, consequence: text })}
                     value={formValues.consequence}
                 />
+                <InputBox
+                    label="Possible function"
+                    onChangeText={(text) => setFormValues({ ...formValues, function: text })}
+                    value={formValues.function}
+                />
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center', marginTop: 20 }}>
                     <TouchableOpacity style={styles.button} onPress={() => {
-                            saveData();
-                            navigation.dispatch(StackActions.pop(1));
-                        }}>
+                        saveData();
+                        navigation.dispatch(StackActions.pop(1));
+                    }}>
                         <Text style={{ color: '#fff', fontWeight: 'bold' }}>SAVE</Text>
                     </TouchableOpacity>
                 </View>
