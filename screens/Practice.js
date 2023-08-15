@@ -52,6 +52,7 @@ const QuizSection = () => {
             <InputBox label='ANTECEDENT' />
             <InputBox label='BEHAVIOR' />
             <InputBox label='CONSEQUENCE' />
+            <InputBox label='POSSIBLE FUNCTION' />
         </View>
     )
 }
@@ -81,14 +82,15 @@ const styles = StyleSheet.create({
         marginVertical: '1.5%',
         borderWidth: 1,
         backgroundColor: '#ffff',
-        height: 50,
-        margin: 12,
+        height: 40,
+        margin: 15,
         borderWidth: 1,
         padding: 10,
     },
 
     label: {
         fontWeight: 'bold',
-        color: '#121b45'
+        color: '#121b45',
+        marginLeft: 15
     }
 });

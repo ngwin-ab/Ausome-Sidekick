@@ -34,7 +34,7 @@ const AddChart = ({ route, navigation }) => {
     });
 
     const getData = () => {
-        const url = `http://10.0.0.136:3000/kids/${kidId}`;
+        const url = `https://ausome-sidekick-c2c64a71e070.herokuapp.com/kids/${kidId}`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -64,7 +64,7 @@ const AddChart = ({ route, navigation }) => {
         }
 
         setIsLoading(true);
-        const url = `http://10.0.0.136:3000/kids/${kidId}`;
+        const url = `https://ausome-sidekick-c2c64a71e070.herokuapp.com/kids/${kidId}`;
         try {
             const response = await fetch(url, {
                 method: 'POST',
