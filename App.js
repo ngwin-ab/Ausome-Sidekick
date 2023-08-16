@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { View, StatusBar, Button, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -17,26 +17,31 @@ import Practice from './screens/Practice';
 import Practice2 from './screens/Practice2';
 import Practice3 from './screens/Practice3';
 import About from './screens/About';
-import OnboardingScreen from './components/OnboardingScreen';
+import OnboardingScreens from './components/OnboardingScreens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import OnboardingPage from './components/OnboardingPage';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 const PracticeStack = createNativeStackNavigator();
 
 const App = () => {
+  React.useEffect(() => {
+    return () => (isReadyRef.current = false);
+  }, []);
+
   const [showOnboarding, setShowOnboarding] = useState(true);
 
   const handleOnboardingDone = () => {
-    setShowOnboarding(false); // Update the state to hide onboarding screen
+    setShowOnboarding(false);
   };
 
   if (showOnboarding) {
-    return <OnboardingScreen onPress={handleOnboardingDone} />;
+    return <OnboardingScreens onPress={handleOnboardingDone} />;
   }
 
   return (
-    <View style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
+    <View style={{ flex: 1 }}>
       <NavigationContainer>
         <Tab.Navigator tabBaroptions={{ headerShown: false }}
           screenOptions={({ route }) => ({
@@ -84,7 +89,7 @@ const App = () => {
               </HomeStack.Group>
             </HomeStack.Navigator>)}
           </Tab.Screen>
-          
+
           <Tab.Screen name="Practice" options={{ headerShown: false }}>
             {() => (<PracticeStack.Navigator
               screenOptions={{
@@ -98,25 +103,28 @@ const App = () => {
                 <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice 3" }} />
               </PracticeStack.Group>
             </PracticeStack.Navigator>)}
-            </Tab.Screen>
+          </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
               headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'white',
+              headerTitleStyle: {
+                color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
               headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'white',
+              headerTitleStyle: {
+                color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
               headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'white',
+              headerTitleStyle: {
+                color: 'white',
                 fontWeight: 'bold',
               }
             }} />
