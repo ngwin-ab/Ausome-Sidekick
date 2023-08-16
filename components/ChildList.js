@@ -101,6 +101,7 @@ const ChildList = ({ navigation, deleteMode, onChildCountChange }) => {
         <View style={{ marginTop: 20, flex: 1 }}>
             {data.length === 0 ? (
                 <View>
+                    <Text style={styles.heading}>Add a child to track behaviors</Text>
                     <TouchableOpacity
                         style={styles.addbox}
                         onPress={() => navigation.navigate('AddChild')}>
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         color: '#121b45',
-        margin: 15,
+        marginHorizontal: 15,
     },
 
     avatar: {

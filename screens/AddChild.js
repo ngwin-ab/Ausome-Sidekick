@@ -36,19 +36,19 @@ const AddChild = ({ navigation }) => {
     return (
         <>
             <View style={styles.container}>
-                <Text style={[styles.heading, styles.pageHeading]}>Child's name:</Text>
+                <Text style={[styles.heading, styles.pageHeading]}>Child's name</Text>
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => setName(text)}
                     value={name}
                 />
-                <Text style={styles.heading}>Like:</Text>
+                <Text style={styles.heading}>Like</Text>
                 <TextInput
                     style={styles.input}
                     onChangeText={(text) => setLike(text)}
                     value={like}
                 />
-                <Text style={styles.heading}>Choose an avatar:</Text>
+                <Text style={styles.heading}>Choose an avatar</Text>
                 <AvatarList onSelectAvatar={(index) => setSelectedAvatarIndex(index)}></AvatarList>
                 <View style={{ display: 'flex', flexDirection: 'row', alignSelf: 'center' }}>
                     <TouchableOpacity style={styles.button} onPress={() => {
