@@ -1,9 +1,11 @@
-import React from 'react';
-import { View, StatusBar, Button, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, StatusBar, Button, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import 'react-native-gesture-handler';
+
+// Screens imports
 import Home from './screens/Home';
 import AddChild from './screens/AddChild';
 import Resources from './screens/Resources';
@@ -15,6 +17,7 @@ import Practice from './screens/Practice';
 import Practice2 from './screens/Practice2';
 import Practice3 from './screens/Practice3';
 import About from './screens/About';
+import OnboardingScreens from './components/OnboardingScreens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -22,8 +25,22 @@ const HomeStack = createNativeStackNavigator();
 const PracticeStack = createNativeStackNavigator();
 
 const App = () => {
+  React.useEffect(() => {
+    return () => (isReadyRef.current = false);
+  }, []);
+
+  const [showOnboarding, setShowOnboarding] = useState(true);
+
+  const handleOnboardingDone = () => {
+    setShowOnboarding(false);
+  };
+
+  if (showOnboarding) {
+    return <OnboardingScreens onPress={handleOnboardingDone} />;
+  }
+
   return (
-    <View style={{ flex: 1 }} contentContainerStyle={{ minHeight: '100%' }}>
+    <View style={{ flex: 1 }}>
       <NavigationContainer>
         <Tab.Navigator tabBaroptions={{ headerShown: false }}
           screenOptions={({ route }) => ({
@@ -71,7 +88,7 @@ const App = () => {
               </HomeStack.Group>
             </HomeStack.Navigator>)}
           </Tab.Screen>
-          
+
           <Tab.Screen name="Practice" options={{ headerShown: false }}>
             {() => (<PracticeStack.Navigator
               screenOptions={{
@@ -85,25 +102,28 @@ const App = () => {
                 <PracticeStack.Screen name="Practice3" component={Practice3} options={{ title: "Practice 3" }} />
               </PracticeStack.Group>
             </PracticeStack.Navigator>)}
-            </Tab.Screen>
+          </Tab.Screen>
           <Tab.Screen name="Resources" component={Resources}
             options={{
               headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'white',
+              headerTitleStyle: {
+                color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="Settings" component={Settings}
             options={{
               headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'white',
+              headerTitleStyle: {
+                color: 'white',
                 fontWeight: 'bold',
               }
             }} />
           <Tab.Screen name="About" component={About}
             options={{
               headerStyle: { backgroundColor: '#49578a' }, headerTintColor: '#fff',
-              headerTitleStyle: { color: 'white',
+              headerTitleStyle: {
+                color: 'white',
                 fontWeight: 'bold',
               }
             }} />
