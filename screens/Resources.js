@@ -100,14 +100,14 @@ const Resources = ({ navigation }) => {
         };
 
         return (
-            <View style={{ height: '29%', backgroundColor: 'rgb(235, 243, 250)', flexDirection: 'column' }}>
+            <View style={{ height: '29%', backgroundColor: '#EBF3FA', flexDirection: 'column' }}>
                 <Text></Text>
                 <SearchBar
                     onChangeText={updateSearch}
                     value={search}
                     lightTheme={true}
                     round={true}
-                    containerStyle={{ backgroundColor: 'rgb(235, 243, 250)' }}
+                    containerStyle={{ backgroundColor: '#EBF3FA' }}
                 />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 }}>
                     <TouchableOpacity style={styles.button} onPress={() => {handleSearch()}}>
@@ -154,7 +154,7 @@ export default Resources;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(235, 243, 250)',
+        backgroundColor: '#EBF3FA',
         alignItems: 'center',
         justifyContent: 'center',
     },

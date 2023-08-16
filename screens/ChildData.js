@@ -136,7 +136,7 @@ export default ChildData;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(235, 243, 250)',
+        backgroundColor: '#EBF3FA',
     },
 
     heading: {

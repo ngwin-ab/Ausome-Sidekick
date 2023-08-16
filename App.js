@@ -25,9 +25,6 @@ const HomeStack = createNativeStackNavigator();
 const PracticeStack = createNativeStackNavigator();
 
 const App = () => {
-  React.useEffect(() => {
-    return () => (isReadyRef.current = false);
-  }, []);
 
   const [showOnboarding, setShowOnboarding] = useState(true);
 
@@ -61,7 +58,7 @@ const App = () => {
               }
               return <Ionicons name={iconName} size={22} color={color} />;
             }, tabBarStyle: {
-              backgroundColor: 'rgb(235, 243, 250)',
+              backgroundColor: '#EBF3FA',
               borderTopColor: '#bfbfbf'
             },
             tabBarActiveTintColor: '#121b45',
