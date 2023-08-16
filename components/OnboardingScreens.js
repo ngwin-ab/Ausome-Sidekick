@@ -18,27 +18,37 @@ const OnboardingScreens = ({ onPress }) => {
             DoneButtonComponent={Done}
             pages={[
                 {
-                    backgroundColor: '#D3dbf7',
-                    image: <Image resizeMode='contain' style={styles.image} source={require('../assets/Question.png') } />,
-                    title: 'Why did they do that?',
+                    backgroundColor: '#EBF3FA',
+                    image: <Image resizeMode='contain' style={styles.image} source={require('../assets/Welcome.png')} />,
+                    title: 'This app helps parents and teachers record ABC charts.',
                     titleStyles: { color: '#121b45', fontWeight: 'bold' },
-                    subtitle: '4 main functions of a behavior:\n- To obtain something desired\n- To avoid an undesirable situation\n- To get social attention \n- To access sensory input',
-                    subTitleStyles: {color: '#121b45'}
-                    
+                    subtitle: 'But, what are ABC charts, and why are they helpful?',
                 },
+
                 {
-                    backgroundColor: '#D3dbf7',
+                    backgroundColor: '#EBF3FA',
                     image: <Image resizeMode='contain' style={styles.image} source={require('../assets/Abc.png')} />,
-                    title: 'The ABC\'s of behavior',
+                    title: 'The ABCs of behavior',
                     titleStyles: { color: '#121b45', fontWeight: 'bold' },
                     subtitle: 'Antecedent: what happened before the behavior,\n Behavior: the actual behavior\nConsequence: what happened afterward as a result',
                 },
+
                 {
-                    backgroundColor: '#D3dbf7',
+                    backgroundColor: '#EBF3FA',
+                    image: <Image resizeMode='contain' style={styles.image} source={require('../assets/Question.png') } />,
+                    title: 'Why do kids have such behaviors?',
+                    titleStyles: { color: '#121b45', fontWeight: 'bold' },
+                    subtitle: '4 main functions of challenging behaviors:\n- To obtain something desired\n- To avoid an undesirable situation\n- To get social attention \n- To access sensory input',
+                    subTitleStyles: {color: '#121b45'}
+                    
+                },
+            
+                {
+                    backgroundColor: '#EBF3FA',
                     image: <Image resizeMode='contain' style={styles.image} source={require('../assets/Lightbulb.png')} />,
                     title: 'Connect the dots',
                     titleStyles: { color: '#121b45', fontWeight: 'bold' },
-                    subtitle: 'By collecting and analyzing ABC\'s data, a potential function of the challenging behavior can be determined. Then we can provide appropriate consequences as well as teach appropriate alternatives to engaging in those behaviors.'
+                    subtitle: 'By collecting and analyzing ABCs data, a potential function of the challenging behavior can be determined. Then we can provide appropriate consequences as well as teach appropriate alternatives to engaging in those behaviors.'
                 },
             ]}
         />
@@ -49,7 +59,7 @@ export default OnboardingScreens;
 
 const styles = StyleSheet.create({
     image: {
-        width: 200,
-        height: 200
+        width: 280,
+        height: 260
     }
 });
