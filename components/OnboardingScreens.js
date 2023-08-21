@@ -46,7 +46,7 @@ const OnboardingScreens = ({ onPress }) => {
                 {
                     backgroundColor: '#EBF3FA',
                     image: <Image resizeMode='contain' style={styles.image} source={require('../assets/Lightbulb.png')} />,
-                    title: 'Connect the dots',
+                    title: 'Connecting the dots',
                     titleStyles: { color: '#121b45', fontWeight: 'bold' },
                     subtitle: 'By collecting and analyzing ABCs data, a potential function of the challenging behavior can be determined. Then we can provide appropriate consequences as well as teach appropriate alternatives to engaging in those behaviors.'
                 },
