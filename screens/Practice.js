@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, FlatList, TextInput, StyleSheet, Alert, TouchableOpacity } from 'react-native';
-import { ScrollView } from "react-native-gesture-handler";
+import { View, Text, FlatList, TextInput, StyleSheet, Alert, TouchableOpacity, ScrollView } from 'react-native';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 const Practice = ({ navigation }) => {
